@@ -40,7 +40,7 @@ const Careers = () => {
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.3fr_1fr]">
           <div className="px-6 lg:px-10 py-20 md:py-28">
             <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
-              Careers <span className="italic">at [STUDIO]</span>
+              Careers <span className="italic">at Horizon Studio</span>
             </h1>
             <p className="text-[14px] text-muted-foreground mt-4 max-w-[460px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
               We're looking for talented people who hold themselves to the highest standard. No bureaucracy — just meaningful work.

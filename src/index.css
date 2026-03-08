@@ -134,3 +134,15 @@ html { scroll-behavior: smooth; }
 .list-row:hover {
   background-color: hsl(var(--secondary));
 }
+
+/* Dashed underline on hover for linkable text */
+a:not([class*="rounded-full"]):not([class*="list-row"]):not([class*="flex"]):not([class*="grid"]) {
+  transition: all 0.2s ease;
+}
+
+.link-hover:hover,
+.hover-dashed:hover {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+}

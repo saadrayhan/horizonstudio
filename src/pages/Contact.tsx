@@ -19,7 +19,7 @@ const Contact = () => (
 
           <div className="mt-12">
             {[
-              { label: "Email", value: "hello@studio.dev" },
+              { label: "Email", value: "hello@horizonstudio.dev" },
               { label: "Based in", value: "Dhaka, Bangladesh" },
               { label: "Available for", value: "Projects worldwide" },
             ].map((item) => (

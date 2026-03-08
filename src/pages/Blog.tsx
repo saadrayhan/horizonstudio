@@ -38,7 +38,7 @@ const Blog = () => {
       <section className="pt-[72px] border-b border-border">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20 flex items-center justify-between">
           <h1 className="font-serif text-[48px] md:text-[64px] text-foreground leading-[1.06] animate-blur-in">
-            The [STUDIO]
+            The Horizon
           </h1>
           <img src={illustrationBlog3} alt="Journal" className="w-24 md:w-36 h-auto hidden md:block animate-blur-in" style={{ animationDelay: "200ms" }} />
           <span className="font-serif text-[48px] md:text-[64px] text-foreground leading-[1.06] animate-blur-in italic" style={{ animationDelay: "100ms" }}>

@@ -7,11 +7,11 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
 
 const team = [
-  { name: "Ahmed R.", role: "Founder & Design Lead" },
-  { name: "Farhan K.", role: "Full-Stack Developer" },
-  { name: "Nadia S.", role: "UX Researcher" },
-  { name: "Tanvir H.", role: "Frontend Engineer" },
-  { name: "Riya M.", role: "Visual Designer" },
+  { name: "Saad Rayhan", role: "Creative Director & CEO" },
+  { name: "Joy Sorkar", role: "CTO & Backend Developer" },
+  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager" },
+  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development" },
+  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative" },
 ];
 
 const principles = [

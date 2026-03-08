@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-6 h-[72px] border-b border-border">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
-              <span className="text-[11px] font-bold text-primary-foreground">S</span>
+              <span className="text-[11px] font-bold text-primary-foreground">H</span>
             </div>
           </Link>
           <button onClick={() => setMenuOpen(false)} className="p-2 text-foreground">
