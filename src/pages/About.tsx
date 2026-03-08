@@ -3,6 +3,7 @@ import { useCountUp, useStaggerReveal } from "@/hooks/useReveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import processImg from "@/assets/process-image.jpg";
+import heroImg from "@/assets/hero-landscape.jpg";
 
 const team = [
   { name: "Ahmed R.", role: "Founder & Design Lead" },
@@ -12,100 +13,187 @@ const team = [
   { name: "Riya M.", role: "Visual Designer" },
 ];
 
+const principles = [
+  { icon: "✓", text: "We hold ourselves to the highest standard — and give our team the latitude to make decisions." },
+  { icon: "✓", text: "We move quickly, but never at the expense of quality." },
+  { icon: "✓", text: "We say no to projects that don't align with our values." },
+];
+
 const values = [
-  { title: "Design before code", desc: "We design the complete experience before development begins. Prototyping isn't optional." },
+  { title: "Design before code", desc: "We design the complete experience before development begins." },
   { title: "Understand before execute", desc: "We spend real time understanding your problem before proposing solutions." },
-  { title: "Communicate like partners", desc: "Full visibility, always. No black boxes, no surprise deliveries." },
-  { title: "Say no when we should", desc: "If a project isn't right, we tell you. We protect quality by being selective." },
+  { title: "Communicate like partners", desc: "Full visibility, always. No black boxes." },
+  { title: "Say no when we should", desc: "We protect quality by being selective." },
 ];
 
 const About = () => {
   const { ref: c1, count: n1 } = useCountUp(12, 1400);
   const { ref: c2, count: n2 } = useCountUp(5, 1200);
   const { ref: teamRef, visibleItems: teamVis } = useStaggerReveal(5, 0.1, 100);
-  const { ref: valRef, visibleItems: valVis } = useStaggerReveal(4, 0.1, 120);
+  const { ref: valRef, visibleItems: valVis } = useStaggerReveal(4, 0.1, 100);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-[72px]">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <h1 className="font-serif text-[44px] md:text-[56px] text-foreground leading-[1.08] max-w-[700px] animate-blur-in italic">
-            Small team. Strong opinions.
-          </h1>
-          <p className="text-[15px] text-muted-foreground mt-5 max-w-[500px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
-            We're a design-first product studio. No middlemen, no bloated processes — individual ownership of every project.
-          </p>
+      {/* Hero — split with image */}
+      <section className="pt-[72px] border-b border-border">
+        <div className="max-w-[1240px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
+            <div className="px-6 lg:px-10 py-20 md:py-28 flex flex-col justify-end">
+              <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
+                [STUDIO] is a design-first <span className="italic">product studio</span>
+              </h1>
+              <p className="text-[14px] text-muted-foreground mt-5 max-w-[420px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
+                We build products for startups and growing companies — with craft, conviction, and transparency.
+              </p>
+              <div className="mt-6 animate-blur-in" style={{ animationDelay: "250ms" }}>
+                <Link to="/work" className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors inline-flex">
+                  See our work →
+                </Link>
+              </div>
+            </div>
+            <div className="border-l border-border hidden md:block">
+              <img src={heroImg} alt="Studio" className="w-full h-full object-cover" />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-t border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div ref={c1}>
-            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-2">Projects</p>
-            <p className="text-[40px] font-semibold text-foreground font-mono">{n1}+</p>
+      {/* Two-col value statement */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 border-r border-border">
+            <h2 className="font-serif text-[28px] text-foreground leading-[1.15]">
+              Here to deliver the <span className="italic">value</span> expected on day one.
+            </h2>
           </div>
-          <div ref={c2}>
-            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-2">Team</p>
-            <p className="text-[40px] font-semibold text-foreground font-mono">{n2}</p>
+          <div className="px-6 lg:px-10 py-16">
+            <h2 className="font-serif text-[28px] text-foreground leading-[1.15]">
+              At the highest <span className="italic">quality</span> possible.
+            </h2>
           </div>
-          <div>
-            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-2">Founded</p>
-            <p className="text-[40px] font-semibold text-foreground font-mono">2026</p>
+        </div>
+      </section>
+
+      {/* Bento — photo grid like Titan about */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="bg-secondary/60 px-6 lg:px-10 py-12 border-r border-border">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">The future of product</p>
+            <p className="text-[14px] text-foreground/80 leading-relaxed max-w-[380px] mb-6">
+              We believe the best products come from small, focused teams with strong opinions and full ownership.
+            </p>
+            <Link to="/work" className="text-[12px] font-semibold uppercase tracking-wider text-foreground hover:text-muted-foreground transition-colors">
+              See projects →
+            </Link>
           </div>
-          <div>
-            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-2">Based in</p>
-            <p className="text-[40px] font-semibold text-foreground">Dhaka</p>
+          <div className="border-l border-border">
+            <img src={processImg} alt="Team working" className="w-full h-full object-cover aspect-[4/3]" />
+          </div>
+        </div>
+      </section>
+
+      {/* DNA section with checkmarks */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 md:py-20">
+            <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.1]">
+              Our DNA is defined by holding an uncompromisingly high bar for who we hire, and giving them wide latitude to make <span className="italic">decisions.</span>
+            </h2>
+          </div>
+          <div className="border-l border-border px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center">
+            {principles.map((p, i) => (
+              <div key={i} className="flex items-start gap-3 py-3 border-t border-border first:border-t-0">
+                <span className="w-5 h-5 rounded-full bg-foreground text-primary-foreground flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">{p.icon}</span>
+                <p className="text-[13px] text-foreground/70 leading-relaxed">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats — bordered grid cells */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4">
+          <div ref={c1} className="px-6 lg:px-10 py-8 border-r border-border">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Projects</p>
+            <p className="text-[32px] font-mono font-semibold text-foreground mt-1">{n1}+</p>
+          </div>
+          <div ref={c2} className="px-6 lg:px-10 py-8 border-r border-border">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Team</p>
+            <p className="text-[32px] font-mono font-semibold text-foreground mt-1">{n2}</p>
+          </div>
+          <div className="px-6 lg:px-10 py-8 border-r border-border">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Founded</p>
+            <p className="text-[32px] font-mono font-semibold text-foreground mt-1">2026</p>
+          </div>
+          <div className="px-6 lg:px-10 py-8">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Based in</p>
+            <p className="text-[32px] font-semibold text-foreground mt-1">Dhaka</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Principles — list like Titan */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 md:py-20 border-r border-border">
+            <h2 className="font-serif text-[28px] text-foreground">
+              Our principles<br/>guide how we do things
+            </h2>
+            <Link to="/work" className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-5 py-2 rounded-full hover:bg-foreground/90 transition-colors inline-flex mt-6">
+              See our process →
+            </Link>
+          </div>
+          <div className="px-6 lg:px-10 py-16 md:py-20">
+            <div ref={valRef}>
+              {values.map((v, i) => (
+                <div key={i} className={`py-4 border-t border-border first:border-t-0 transition-all duration-400 ${valVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
+                  <h3 className="text-[15px] font-semibold text-foreground mb-1">{v.title}</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">{v.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Team */}
-      <section className="border-t border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <h2 className="font-serif text-3xl md:text-[40px] text-foreground italic mb-14">The people behind the pixels.</h2>
-          <div ref={teamRef} className="grid grid-cols-2 md:grid-cols-5 gap-5">
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+          <h2 className="font-serif text-[28px] md:text-[36px] text-foreground mb-12">
+            Meet the team <span className="italic">building</span><br/>the future of product
+          </h2>
+          <div ref={teamRef} className="grid grid-cols-2 md:grid-cols-5 gap-0">
             {team.map((m, i) => (
-              <div key={m.name} className={`transition-all duration-500 ${teamVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-                <div className="aspect-[3/4] bg-muted rounded-xl mb-4 overflow-hidden">
-                  <img src={processImg} alt={m.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+              <div key={m.name} className={`border-l border-border first:border-l-0 px-0 sm:px-4 first:sm:pl-0 transition-all duration-500 ${teamVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                <p className="font-serif text-[18px] text-foreground italic mb-2">
+                  {m.name.split(' ')[0]}<br/><span className="text-foreground/60">{m.name.split(' ')[1] || ''}</span>
+                </p>
+                <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
+                  <img src={processImg} alt={m.name} className="w-full h-full object-cover grayscale" />
                 </div>
-                <p className="text-[14px] font-semibold text-foreground">{m.name}</p>
-                <p className="text-[12px] text-muted-foreground mt-0.5">{m.role}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="border-t border-border bg-secondary/40">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <h2 className="font-serif text-3xl md:text-[40px] text-foreground italic max-w-[500px] mb-14">Principles, not process.</h2>
-          <div ref={valRef}>
-            {values.map((v, i) => (
-              <div key={i} className={`grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 py-8 border-t border-border transition-all duration-500 ${valVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                <h3 className="text-[18px] font-semibold text-foreground">{v.title}</h3>
-                <p className="text-[14px] text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
+      {/* Apply CTA */}
+      <section className="border-b border-border">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 md:py-20 border-r border-border">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Apply to join our team</p>
+            <p className="text-[14px] text-muted-foreground max-w-[360px] leading-relaxed mb-6">
+              We're always looking for talented people who care about craft.
+            </p>
+            <Link to="/careers" className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors inline-flex">
+              View careers →
+            </Link>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="border-t border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground italic">Want to work with us?</h2>
-          <div className="flex items-center justify-center gap-3 mt-8">
-            <Link to="/contact" className="text-[13px] font-medium bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors">
-              Start a project →
-            </Link>
-            <Link to="/careers" className="text-[13px] font-medium border border-border px-6 py-2.5 rounded-full hover:bg-secondary transition-colors text-foreground">
-              View open roles
-            </Link>
+          <div className="border-l border-border hidden md:block">
+            <img src={processImg} alt="Join us" className="w-full h-full object-cover aspect-[16/10]" />
           </div>
         </div>
       </section>
