@@ -2,18 +2,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Contact = () => (
-  <div className="min-h-screen bg-background noise-overlay">
+  <div className="min-h-screen bg-background">
     <Navbar />
 
-    <section className="pt-32 pb-20 px-6 lg:px-10 max-w-[1200px] mx-auto">
+    <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[1300px] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        {/* Left */}
         <div>
           <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Contact</p>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] animate-blur-in gradient-text-subtle">
-            Let's build something.
+          <h1 className="font-serif text-4xl md:text-5xl text-foreground leading-[1.1] animate-blur-in">
+            Let's build something great.
           </h1>
-          <p className="text-muted-foreground mt-6 max-w-[400px] leading-relaxed text-[15px] animate-blur-in" style={{ animationDelay: "150ms" }}>
+          <p className="text-[15px] text-muted-foreground mt-6 max-w-[400px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
             Tell us about your project. We'll tell you honestly if we're the right team.
           </p>
 
@@ -31,7 +30,6 @@ const Contact = () => (
           </div>
         </div>
 
-        {/* Form */}
         <div className="animate-blur-in" style={{ animationDelay: "250ms" }}>
           <form className="space-y-5">
             {[
@@ -44,7 +42,7 @@ const Contact = () => (
                 <input
                   type={f.type}
                   placeholder={f.placeholder}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-muted-foreground/30 transition-shadow"
+                  className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/10 transition-shadow"
                 />
               </div>
             ))}
@@ -53,13 +51,10 @@ const Contact = () => (
               <textarea
                 rows={5}
                 placeholder="What are you building? What stage are you at?"
-                className="w-full px-4 py-3 rounded-lg border border-border bg-card text-[14px] text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-1 focus:ring-muted-foreground/30 transition-shadow"
+                className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-[14px] text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-foreground/10 transition-shadow"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full text-[13px] font-medium text-primary-foreground bg-foreground py-3 rounded-lg hover:bg-foreground/90 transition-colors"
-            >
+            <button type="submit" className="w-full text-[13px] font-medium bg-foreground text-primary-foreground py-3.5 rounded-xl hover:bg-foreground/90 transition-colors">
               Send message →
             </button>
           </form>
