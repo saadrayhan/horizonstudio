@@ -1,79 +1,71 @@
 import { Link } from "react-router-dom";
-import { useReveal } from "@/hooks/useReveal";
+import { useStaggerReveal } from "@/hooks/useReveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const posts = [
-  { slug: "design-systems-at-scale", title: "Design Systems at Scale", excerpt: "How we approach design systems for growing products — and why most teams get it wrong.", category: "Design", date: "Mar 5, 2026" },
-  { slug: "why-we-dont-use-sprints", title: "Why We Don't Use Sprints", excerpt: "Our take on agile, deadlines, and why fixed iterations often hurt product quality.", category: "Process", date: "Feb 28, 2026" },
-  { slug: "building-for-early-stage", title: "Building for Early-Stage Startups", excerpt: "What founders should know before hiring a design studio. Lessons from 12+ projects.", category: "Strategy", date: "Feb 15, 2026" },
-  { slug: "typography-matters", title: "Typography Matters More Than You Think", excerpt: "The invisible design decision that shapes how users feel about your product.", category: "Design", date: "Jan 20, 2026" },
-  { slug: "full-stack-small-team", title: "Full-Stack With a Small Team", excerpt: "How we ship production-grade code with just five people.", category: "Engineering", date: "Jan 8, 2026" },
-  { slug: "saying-no-to-clients", title: "Saying No to Clients", excerpt: "Why turning down work is the best thing we do for quality.", category: "Culture", date: "Dec 15, 2025" },
+  { slug: "design-systems-at-scale", title: "Design Systems at Scale", excerpt: "How we approach design systems for growing products — and why most teams get it wrong.", category: "Design", date: "Mar 5, 2026", readTime: "6 min" },
+  { slug: "why-we-dont-use-sprints", title: "Why We Don't Use Sprints", excerpt: "Our take on agile, deadlines, and why fixed iterations often hurt product quality.", category: "Process", date: "Feb 28, 2026", readTime: "5 min" },
+  { slug: "building-for-early-stage", title: "Building for Early-Stage Startups", excerpt: "What founders should know before hiring a design studio.", category: "Strategy", date: "Feb 15, 2026", readTime: "7 min" },
+  { slug: "typography-matters", title: "Typography Matters More Than You Think", excerpt: "The invisible design decision that shapes how users feel about your product.", category: "Design", date: "Jan 20, 2026", readTime: "4 min" },
+  { slug: "full-stack-small-team", title: "Full-Stack With a Small Team", excerpt: "How we ship production-grade code with just five people.", category: "Engineering", date: "Jan 8, 2026", readTime: "5 min" },
+  { slug: "saying-no-to-clients", title: "Saying No to Clients", excerpt: "Why turning down work is the best thing we do for quality.", category: "Culture", date: "Dec 15, 2025", readTime: "4 min" },
 ];
 
 const Blog = () => {
-  const { ref, visible } = useReveal(0.05);
+  const { ref, visibleItems } = useStaggerReveal(posts.length - 1, 0.05, 100);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background noise-overlay">
       <Navbar />
 
-      <section className="pt-32 pb-8 px-6 lg:px-12 max-w-[1200px] mx-auto">
-        <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Blog</p>
-        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight animate-blur-in">
+      <section className="pt-32 pb-8 px-6 lg:px-10 max-w-[1200px] mx-auto">
+        <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Blog</p>
+        <h1 className="text-4xl md:text-6xl font-semibold tracking-[-0.03em] animate-blur-in gradient-text-subtle">
           Thinking out loud.
         </h1>
-        <p className="text-muted-foreground mt-4 max-w-[480px] animate-blur-in" style={{ animationDelay: "150ms" }}>
+        <p className="text-muted-foreground mt-4 max-w-[480px] text-[15px] animate-blur-in" style={{ animationDelay: "150ms" }}>
           Writing about design, development, and building products that matter.
         </p>
       </section>
 
-      <div className="border-t border-border" />
-
       {/* Featured post */}
-      <section className="px-6 lg:px-12 max-w-[1200px] mx-auto py-12">
-        <Link to={`/blog/${posts[0].slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="aspect-[16/10] bg-secondary rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{posts[0].category}</span>
-              <span className="text-[11px] text-muted-foreground">·</span>
-              <span className="text-[11px] font-mono text-muted-foreground">{posts[0].date}</span>
+      <section className="border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-12">
+          <Link to={`/blog/${posts[0].slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="aspect-[16/10] bg-gradient-to-br from-secondary to-accent rounded-xl overflow-hidden border border-border/50 group-hover:border-border transition-colors" />
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{posts[0].category}</span>
+                <span className="text-muted-foreground/30">·</span>
+                <span className="text-[11px] font-mono text-muted-foreground">{posts[0].date}</span>
+                <span className="text-muted-foreground/30">·</span>
+                <span className="text-[11px] font-mono text-muted-foreground">{posts[0].readTime}</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{posts[0].title}</h2>
+              <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{posts[0].excerpt}</p>
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold group-hover:underline">{posts[0].title}</h2>
-            <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{posts[0].excerpt}</p>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </section>
 
-      <div className="border-t border-border" />
-
       {/* Post grid */}
-      <section ref={ref} className="px-6 lg:px-12 max-w-[1200px] mx-auto py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+      <section className="border-t border-border">
+        <div ref={ref} className="max-w-[1200px] mx-auto px-6 lg:px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
           {posts.slice(1).map((p, i) => (
             <Link
               to={`/blog/${p.slug}`}
               key={p.slug}
-              className="group scroll-fade"
-              style={{
-                transitionDelay: `${i * 80}ms`,
-                ...(visible ? { opacity: 1, transform: "translateY(0)" } : {}),
-              }}
+              className={`group transition-all duration-500 ${visibleItems[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              <div className="aspect-[16/10] bg-secondary rounded-lg mb-4 overflow-hidden">
-                <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
-              </div>
-              <div className="flex items-center gap-3 mb-2">
+              <div className="aspect-[16/10] bg-gradient-to-br from-secondary to-accent rounded-xl mb-4 border border-border/50 group-hover:border-border transition-colors" />
+              <div className="flex items-center gap-2 mb-2">
                 <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{p.category}</span>
-                <span className="text-[11px] text-muted-foreground">·</span>
-                <span className="text-[11px] font-mono text-muted-foreground">{p.date}</span>
+                <span className="text-muted-foreground/30">·</span>
+                <span className="text-[11px] font-mono text-muted-foreground">{p.readTime}</span>
               </div>
-              <h3 className="text-lg font-semibold group-hover:underline">{p.title}</h3>
-              <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{p.excerpt}</p>
+              <h3 className="text-[16px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.title}</h3>
+              <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed">{p.excerpt}</p>
             </Link>
           ))}
         </div>

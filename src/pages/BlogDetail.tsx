@@ -38,8 +38,8 @@ const postsData: Record<string, { title: string; category: string; date: string;
     readTime: "7 min read",
     content: [
       "Early-stage startups need speed, but not at the cost of quality. The code and design decisions you make in the first 6 months will compound for years.",
-      "We always start with a 2-week discovery phase. This isn't a luxury — it's insurance against building the wrong thing. Most founders skip this and regret it.",
-      "Our stack for early-stage: React or React Native for the frontend, Supabase or similar for the backend, and Figma for design. Simple, proven, fast to iterate on.",
+      "We always start with a 2-week discovery phase. This isn't a luxury — it's insurance against building the wrong thing.",
+      "Our stack for early-stage: React or React Native for the frontend, Supabase for the backend, and Figma for design. Simple, proven, fast to iterate on.",
       "The goal isn't a perfect product. It's a product that's good enough to validate your hypothesis, built in a way that doesn't need to be thrown away when you find product-market fit.",
     ],
   },
@@ -51,7 +51,7 @@ const postsData: Record<string, { title: string; category: string; date: string;
     readTime: "4 min read",
     content: [
       "Typography accounts for 90% of web design. Yet most teams spend 90% of their design time on layout, color, and imagery.",
-      "A well-chosen typeface communicates trust, professionalism, and personality before a user reads a single word. A poorly chosen one undermines everything else.",
+      "A well-chosen typeface communicates trust, professionalism, and personality before a user reads a single word.",
       "Our approach: pick two typefaces maximum. One for headlines, one for body. Master the type scale, line heights, and spacing. The rest follows naturally.",
     ],
   },
@@ -64,7 +64,7 @@ const postsData: Record<string, { title: string; category: string; date: string;
     content: [
       "You don't need 20 engineers to build a production-grade product. You need 3-4 engineers who are excellent communicators and deeply technical.",
       "We use modern tooling that reduces boilerplate: TypeScript everywhere, component libraries, automated testing, and CI/CD from day one.",
-      "The secret is scope management. We build less, but what we build is solid. Every feature is designed, built, tested, and deployed by the same small team.",
+      "The secret is scope management. We build less, but what we build is solid.",
     ],
   },
   "saying-no-to-clients": {
@@ -75,8 +75,8 @@ const postsData: Record<string, { title: string; category: string; date: string;
     readTime: "4 min read",
     content: [
       "We turn down about 60% of project inquiries. This isn't arrogance — it's quality control.",
-      "If a project doesn't align with our expertise, our values, or our capacity to do excellent work, we say no. Politely, honestly, and with referrals when possible.",
-      "The result: every project we take on gets our full attention. Our clients get better work because we're not spread thin across 15 simultaneous engagements.",
+      "If a project doesn't align with our expertise, our values, or our capacity to do excellent work, we say no.",
+      "The result: every project we take on gets our full attention. Our clients get better work because we're not spread thin.",
     ],
   },
 };
@@ -87,11 +87,11 @@ const BlogDetail = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background noise-overlay">
         <Navbar />
-        <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[800px] mx-auto text-center">
-          <h1 className="text-4xl font-semibold">Post not found</h1>
-          <Link to="/blog" className="text-muted-foreground mt-4 inline-block hover:underline">← Back to blog</Link>
+        <section className="pt-32 pb-20 px-6 lg:px-10 max-w-[800px] mx-auto text-center">
+          <h1 className="text-4xl font-semibold text-foreground">Post not found</h1>
+          <Link to="/blog" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to blog</Link>
         </section>
         <Footer />
       </div>
@@ -99,51 +99,51 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background noise-overlay">
       <Navbar />
 
-      <article className="pt-32 pb-20 px-6 lg:px-12 max-w-[720px] mx-auto">
+      <article className="pt-32 pb-20 px-6 lg:px-10 max-w-[720px] mx-auto">
         <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-8">
           ← Back to blog
         </Link>
 
         <div className="flex items-center gap-3 mb-4">
           <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{post.category}</span>
-          <span className="text-muted-foreground">·</span>
+          <span className="text-muted-foreground/30">·</span>
           <span className="text-[11px] font-mono text-muted-foreground">{post.date}</span>
-          <span className="text-muted-foreground">·</span>
+          <span className="text-muted-foreground/30">·</span>
           <span className="text-[11px] font-mono text-muted-foreground">{post.readTime}</span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight animate-blur-in">
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight animate-blur-in text-foreground">
           {post.title}
         </h1>
 
         <div className="flex items-center gap-3 mt-6 pb-8 border-b border-border">
-          <div className="w-8 h-8 rounded-full bg-secondary" />
-          <span className="text-[14px] font-medium">{post.author}</span>
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-secondary to-accent border border-border/50" />
+          <div>
+            <span className="text-[14px] font-medium text-foreground">{post.author}</span>
+            <span className="text-[12px] text-muted-foreground ml-2">{post.readTime}</span>
+          </div>
         </div>
 
-        {/* Featured image placeholder */}
-        <div className="aspect-[16/9] bg-secondary rounded-lg my-10 overflow-hidden">
-          <div className="w-full h-full bg-muted" />
-        </div>
+        {/* Featured image */}
+        <div className="aspect-[16/9] bg-gradient-to-br from-secondary to-accent rounded-xl my-10 border border-border/50" />
 
         {/* Content */}
         <div className="space-y-6">
           {post.content.map((para, i) => (
-            <p key={i} className="text-[16px] leading-[1.8] text-foreground/80">
+            <p key={i} className="text-[16px] leading-[1.85] text-foreground/75">
               {para}
             </p>
           ))}
         </div>
 
-        {/* Share / back */}
         <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
           <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">
             ← All posts
           </Link>
-          <span className="text-[13px] text-muted-foreground">Share this article</span>
+          <span className="text-[12px] font-mono text-muted-foreground">Share this article</span>
         </div>
       </article>
 
