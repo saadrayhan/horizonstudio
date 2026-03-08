@@ -65,8 +65,8 @@ const BlogDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[800px] mx-auto text-center">
-          <h1 className="font-serif text-4xl text-foreground">Post not found</h1>
+        <section className="pt-[72px] py-28 px-6 max-w-[720px] mx-auto text-center">
+          <h1 className="font-serif text-4xl text-foreground italic">Post not found</h1>
           <Link to="/blog" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to blog</Link>
         </section>
         <Footer />
@@ -78,38 +78,40 @@ const BlogDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <article className="pt-32 pb-20 px-6 lg:px-12 max-w-[720px] mx-auto">
-        <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-8">← Back to blog</Link>
+      <article className="pt-[72px]">
+        <div className="max-w-[720px] mx-auto px-6 lg:px-10 py-20">
+          <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-10">← Back to blog</Link>
 
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{post.category}</span>
-          <span className="text-muted-foreground/30">·</span>
-          <span className="text-[12px] text-muted-foreground">{post.date}</span>
-          <span className="text-muted-foreground/30">·</span>
-          <span className="text-[12px] text-muted-foreground">{post.readTime}</span>
-        </div>
-
-        <h1 className="font-serif text-4xl md:text-5xl text-foreground leading-[1.1] animate-blur-in">{post.title}</h1>
-
-        <div className="flex items-center gap-3 mt-6 pb-8 border-b border-border">
-          <div className="w-9 h-9 rounded-full bg-secondary border border-border" />
-          <div>
-            <span className="text-[14px] font-medium text-foreground">{post.author}</span>
-            <span className="text-[12px] text-muted-foreground ml-2">{post.readTime}</span>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{post.category}</span>
+            <span className="text-muted-foreground/30">·</span>
+            <span className="text-[12px] text-muted-foreground">{post.date}</span>
+            <span className="text-muted-foreground/30">·</span>
+            <span className="text-[12px] text-muted-foreground">{post.readTime}</span>
           </div>
-        </div>
 
-        <div className="aspect-[16/9] bg-secondary rounded-2xl my-10 border border-border" />
+          <h1 className="font-serif text-[36px] md:text-[44px] text-foreground leading-[1.1] animate-blur-in italic">{post.title}</h1>
 
-        <div className="space-y-6">
-          {post.content.map((para, i) => (
-            <p key={i} className="text-[16px] leading-[1.85] text-foreground/80">{para}</p>
-          ))}
-        </div>
+          <div className="flex items-center gap-3 mt-6 pb-8 border-b border-border">
+            <div className="w-9 h-9 rounded-full bg-muted" />
+            <div>
+              <span className="text-[14px] font-medium text-foreground">{post.author}</span>
+              <span className="text-[12px] text-muted-foreground ml-2">{post.readTime}</span>
+            </div>
+          </div>
 
-        <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
-          <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">← All posts</Link>
-          <span className="text-[12px] font-mono text-muted-foreground">Share this article</span>
+          <div className="aspect-[16/9] bg-muted rounded-xl my-10" />
+
+          <div className="space-y-6">
+            {post.content.map((para, i) => (
+              <p key={i} className="text-[16px] leading-[1.85] text-foreground/80">{para}</p>
+            ))}
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
+            <Link to="/blog" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">← All posts</Link>
+            <span className="text-[12px] font-mono text-muted-foreground">Share this article</span>
+          </div>
         </div>
       </article>
 

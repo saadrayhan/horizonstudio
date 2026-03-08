@@ -52,8 +52,8 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[1300px] mx-auto text-center">
-          <h1 className="font-serif text-4xl text-foreground">Project not found</h1>
+        <section className="pt-[72px] py-28 px-6 max-w-[1240px] mx-auto text-center">
+          <h1 className="font-serif text-4xl text-foreground italic">Project not found</h1>
           <Link to="/work" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to work</Link>
         </section>
         <Footer />
@@ -69,29 +69,33 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-32 pb-10 px-6 lg:px-12 max-w-[1300px] mx-auto">
-        <Link to="/work" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-8">← Back to work</Link>
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{project.category}</span>
-          <span className="text-muted-foreground/30">·</span>
-          <span className="text-[12px] font-mono text-muted-foreground px-2 py-0.5 rounded border border-border">{project.year}</span>
-        </div>
-        <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-[1.05] animate-blur-in">{project.name}</h1>
-        <p className="text-[16px] text-muted-foreground mt-5 max-w-[600px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>{project.desc}</p>
-        <div className="flex flex-wrap gap-2 mt-6 animate-blur-in" style={{ animationDelay: "250ms" }}>
-          {project.tags.map((t) => (
-            <span key={t} className="text-[11px] font-mono text-muted-foreground px-2.5 py-1 rounded-md border border-border bg-secondary/50">{t}</span>
-          ))}
+      <section className="pt-[72px]">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20">
+          <Link to="/work" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-10">← Back to work</Link>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{project.category}</span>
+            <span className="text-muted-foreground/30">·</span>
+            <span className="text-[12px] font-mono text-muted-foreground">{project.year}</span>
+          </div>
+          <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.08] animate-blur-in italic">{project.name}</h1>
+          <p className="text-[15px] text-muted-foreground mt-5 max-w-[560px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>{project.desc}</p>
+          <div className="flex flex-wrap gap-2 mt-6 animate-blur-in" style={{ animationDelay: "250ms" }}>
+            {project.tags.map((t) => (
+              <span key={t} className="text-[11px] font-mono text-muted-foreground px-2.5 py-1 rounded-md border border-border">{t}</span>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="px-6 lg:px-12 max-w-[1300px] mx-auto pb-10">
-        <div className="aspect-[16/9] bg-secondary rounded-2xl border border-border animate-blur-in" style={{ animationDelay: "350ms" }} />
+      {/* Hero image */}
+      <section className="px-6 lg:px-10 max-w-[1240px] mx-auto pb-10">
+        <div className="aspect-[16/9] bg-muted rounded-xl animate-blur-in" style={{ animationDelay: "350ms" }} />
       </section>
 
       <div className="border-t border-border" />
 
-      <section className="max-w-[1300px] mx-auto px-6 lg:px-12 py-20">
+      {/* Challenge / Solution / Result */}
+      <section className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20">
         <div ref={detRef} className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
             { label: "The Challenge", text: project.challenge },
@@ -108,20 +112,22 @@ const ProjectDetail = () => {
 
       <div className="border-t border-border" />
 
-      <section className="max-w-[1300px] mx-auto px-6 lg:px-12 py-20">
+      {/* Gallery */}
+      <section className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20">
         <div ref={imgRef} className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {[0, 1, 2, 3].map((n) => (
-            <div key={n} className={`aspect-[4/3] bg-secondary rounded-2xl border border-border transition-all duration-500 ${imgVis[n] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} />
+            <div key={n} className={`aspect-[4/3] bg-muted rounded-xl transition-all duration-500 ${imgVis[n] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} />
           ))}
         </div>
       </section>
 
       <div className="border-t border-border" />
 
-      <section className="max-w-[1300px] mx-auto px-6 lg:px-12 py-20">
+      {/* Next project */}
+      <section className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20">
         <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Next project</p>
         <Link to={`/work/${nextSlug}`} className="group block">
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground group-hover:text-muted-foreground transition-colors">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground group-hover:text-muted-foreground transition-colors italic">
             {nextProject.name} →
           </h2>
         </Link>

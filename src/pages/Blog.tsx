@@ -19,22 +19,23 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-32 pb-10 px-6 lg:px-12 max-w-[1300px] mx-auto">
-        <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Blog</p>
-        <h1 className="font-serif text-5xl md:text-7xl text-foreground leading-[1.05] animate-blur-in">
-          Thinking out loud.
-        </h1>
-        <p className="text-[16px] text-muted-foreground mt-5 max-w-[480px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
-          Writing about design, development, and building products that matter.
-        </p>
+      <section className="pt-[72px]">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
+          <h1 className="font-serif text-[44px] md:text-[56px] text-foreground leading-[1.08] animate-blur-in italic">
+            Our Thinking
+          </h1>
+          <p className="text-[15px] text-muted-foreground mt-4 max-w-[460px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
+            Writing about design, development, and building products that matter.
+          </p>
+        </div>
       </section>
 
       {/* Featured */}
       <section className="border-t border-border">
-        <div className="max-w-[1300px] mx-auto px-6 lg:px-12 py-12">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-12">
           <Link to={`/blog/${posts[0].slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="aspect-[16/10] bg-secondary rounded-2xl border border-border overflow-hidden">
-              <div className="w-full h-full bg-muted group-hover:scale-[1.03] transition-transform duration-700" />
+            <div className="aspect-[16/10] bg-muted rounded-xl overflow-hidden">
+              <div className="w-full h-full bg-accent group-hover:scale-[1.02] transition-transform duration-700" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-3">
@@ -42,7 +43,7 @@ const Blog = () => {
                 <span className="text-muted-foreground/30">·</span>
                 <span className="text-[12px] text-muted-foreground">{posts[0].date}</span>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl text-foreground group-hover:text-muted-foreground transition-colors">{posts[0].title}</h2>
+              <h2 className="font-serif text-2xl md:text-3xl text-foreground group-hover:text-muted-foreground transition-colors italic">{posts[0].title}</h2>
               <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{posts[0].excerpt}</p>
               <span className="text-[12px] font-mono text-muted-foreground mt-4">{posts[0].readTime} read</span>
             </div>
@@ -51,18 +52,18 @@ const Blog = () => {
       </section>
 
       <section className="border-t border-border">
-        <div ref={ref} className="max-w-[1300px] mx-auto px-6 lg:px-12 py-12 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
+        <div ref={ref} className="max-w-[1240px] mx-auto px-6 lg:px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
           {posts.slice(1).map((p, i) => (
             <Link to={`/blog/${p.slug}`} key={p.slug} className={`group transition-all duration-500 ${visibleItems[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-              <div className="aspect-[16/10] bg-secondary rounded-2xl mb-4 border border-border overflow-hidden">
-                <div className="w-full h-full bg-muted group-hover:scale-[1.03] transition-transform duration-700" />
+              <div className="aspect-[16/10] bg-muted rounded-xl mb-4 overflow-hidden">
+                <div className="w-full h-full bg-accent group-hover:scale-[1.02] transition-transform duration-700" />
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{p.category}</span>
                 <span className="text-muted-foreground/30">·</span>
                 <span className="text-[12px] text-muted-foreground">{p.readTime}</span>
               </div>
-              <h3 className="text-[17px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.title}</h3>
+              <h3 className="text-[16px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.title}</h3>
               <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed">{p.excerpt}</p>
             </Link>
           ))}
