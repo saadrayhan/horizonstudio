@@ -29,21 +29,21 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+          scrolled ? "bg-background/92 backdrop-blur-xl border-border" : "bg-background border-border"
         }`}
       >
         <div className="max-w-[1240px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
               <span className="text-[11px] font-bold text-primary-foreground">S</span>
             </div>
-            <span className="text-[15px] font-semibold text-foreground tracking-tight hidden sm:block">[STUDIO]</span>
+            <span className="text-[15px] font-semibold text-foreground tracking-tight">[STUDIO]</span>
           </Link>
 
-          {/* Desktop nav — pill style */}
-          <div className="hidden md:flex items-center gap-1 bg-secondary/80 backdrop-blur-sm rounded-full px-1.5 py-1 border border-border">
+          {/* Desktop nav — pill container */}
+          <div className="hidden md:flex items-center gap-0.5 border border-border rounded-full px-1 py-0.5">
             {navLinks.map((l) => {
               const active = location.pathname.startsWith(l.href);
               return (
@@ -62,13 +62,18 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* CTA */}
-          <Link
-            to="/contact"
-            className="hidden md:inline-flex text-[13px] font-medium bg-foreground text-primary-foreground px-5 py-2 rounded-full hover:bg-foreground/90 transition-colors"
-          >
-            Talk to us
-          </Link>
+          {/* Right side */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link to="/contact" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">
+              Log in
+            </Link>
+            <Link
+              to="/contact"
+              className="text-[12px] font-semibold bg-foreground text-primary-foreground px-5 py-2 rounded-full hover:bg-foreground/90 transition-colors"
+            >
+              Talk to us
+            </Link>
+          </div>
 
           {/* Mobile hamburger */}
           <button
@@ -89,8 +94,8 @@ const Navbar = () => {
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex items-center justify-between px-6 h-[72px]">
-          <Link to="/" className="flex items-center gap-2">
+        <div className="flex items-center justify-between px-6 h-[72px] border-b border-border">
+          <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
               <span className="text-[11px] font-bold text-primary-foreground">S</span>
             </div>
@@ -102,13 +107,13 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-col px-8 pt-8 gap-1">
+        <div className="flex flex-col px-6 pt-8">
           {[...navLinks, { label: "Contact", href: "/contact" }].map((l, i) => (
             <Link
               key={l.label}
               to={l.href}
-              className="text-[32px] font-serif text-foreground py-4 border-b border-border hover:text-muted-foreground transition-colors animate-slide-in"
-              style={{ animationDelay: `${i * 60}ms` }}
+              className="text-[28px] font-serif text-foreground py-4 border-b border-border hover:text-muted-foreground transition-colors animate-slide-in"
+              style={{ animationDelay: `${i * 50}ms` }}
             >
               {l.label}
             </Link>
