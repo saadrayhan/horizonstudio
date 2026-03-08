@@ -37,9 +37,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
-              <span className="text-[11px] font-bold text-primary-foreground">S</span>
+              <span className="text-[11px] font-bold text-primary-foreground">H</span>
             </div>
-            <span className="text-[15px] font-semibold text-foreground tracking-tight">[STUDIO]</span>
+            <span className="text-[15px] font-semibold text-foreground tracking-tight">Horizon Studio</span>
           </Link>
 
           {/* Desktop nav — pill container */}
