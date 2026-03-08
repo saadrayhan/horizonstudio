@@ -38,7 +38,7 @@ const Work = () => {
 
       {/* Hero — split with illustration like Titan offerings */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
           <div className="px-6 lg:px-10 py-20 md:py-28">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">All Offerings</p>
             <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
