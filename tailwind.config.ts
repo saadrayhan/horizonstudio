@@ -18,6 +18,11 @@ export default {
         geist: ['"Geist Mono"', 'monospace'],
       },
       colors: {
+        "warm-base": "hsl(var(--warm-base))",
+        "dark-surface": "hsl(var(--dark-surface))",
+        "primary-text": "hsl(var(--primary-text))",
+        "secondary-text": "hsl(var(--secondary-text))",
+        "accent-red": "hsl(var(--accent-red))",
         border: "hsl(var(--border) / 0.08)",
         input: "hsl(var(--input) / 0.08)",
         ring: "hsl(var(--ring))",
