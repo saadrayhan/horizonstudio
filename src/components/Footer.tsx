@@ -1,36 +1,37 @@
 const Footer = () => {
-  return (
-    <footer className="py-14 md:py-20 bg-studio-text">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Branding */}
-        <div>
-          <span className="font-sans-body text-[14px] font-semibold tracking-[0.06em] uppercase text-studio-cream">
-            [STUDIO NAME]
-          </span>
-          <p className="font-sans-body text-[13px] mt-3 text-studio-muted">
-            Design-first. Built to last.
-          </p>
-        </div>
+  const links = ["Work", "Process", "About", "Contact"];
 
-        {/* Links */}
-        <div className="flex gap-8">
-          {["Work", "About", "Process", "Contact"].map((l) => (
+  return (
+    <footer
+      className="py-7"
+      style={{
+        backgroundColor: "#0C140C",
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Left */}
+        <span className="font-body text-[13px] text-sage">
+          [STUDIO NAME]
+        </span>
+
+        {/* Center links */}
+        <div className="flex items-center gap-8">
+          {links.map((l) => (
             <a
               key={l}
               href={`#${l.toLowerCase()}`}
-              className="font-sans-body text-[13px] tracking-[0.04em] link-underline text-studio-cream/80 hover:text-studio-cream transition-colors duration-200"
+              className="font-body text-[12px] uppercase tracking-[0.1em] text-sage hover:text-cream transition-colors duration-150"
             >
               {l}
             </a>
           ))}
         </div>
 
-        {/* Copyright */}
-        <div className="md:text-right">
-          <p className="font-sans-body text-[12px] text-studio-muted">
-            © 2026 [STUDIO NAME]. All rights reserved.
-          </p>
-        </div>
+        {/* Right */}
+        <span className="font-body text-[12px]" style={{ color: "#4A5A44" }}>
+          © 2026 [STUDIO NAME]
+        </span>
       </div>
     </footer>
   );
