@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Reveal, MagneticButton, motion } from "@/components/motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -10,14 +11,29 @@ const Contact = () => (
       <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
         {/* Left — info */}
         <div className="px-6 lg:px-10 py-20 md:py-28 border-r border-border">
-          <h1 className="font-serif text-[40px] md:text-[48px] text-foreground leading-[1.08] animate-blur-in">
+          <motion.h1
+            className="font-serif text-[40px] md:text-[48px] text-foreground leading-[1.08]"
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
+          >
             Let's build something <span className="italic">great.</span>
-          </h1>
-          <p className="text-[14px] text-muted-foreground mt-5 max-w-[360px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
+          </motion.h1>
+          <motion.p
+            className="text-[14px] text-muted-foreground mt-5 max-w-[360px] leading-relaxed"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.25 }}
+          >
             Tell us about your project. We'll tell you honestly if we're the right team.
-          </p>
+          </motion.p>
 
-          <div className="mt-12">
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.35 }}
+          >
             {[
               { label: "Email", value: "hello@horizonstudio.dev" },
               { label: "Based in", value: "Dhaka, Bangladesh" },
@@ -28,11 +44,16 @@ const Contact = () => (
                 <p className="text-[15px] font-medium text-foreground">{item.value}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Right — form */}
-        <div className="px-6 lg:px-10 py-20 md:py-28 animate-blur-in" style={{ animationDelay: "200ms" }}>
+        <motion.div
+          className="px-6 lg:px-10 py-20 md:py-28"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+        >
           <form className="space-y-5">
             {[
               { label: "Name", type: "text", placeholder: "Your name" },
@@ -56,11 +77,13 @@ const Contact = () => (
                 className="w-full px-4 py-3 border border-border bg-background text-[14px] text-foreground placeholder:text-muted-foreground/50 resize-none focus:outline-none focus:ring-2 focus:ring-foreground/10 transition-shadow"
               />
             </div>
-            <button type="submit" className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-3 rounded-full hover:bg-foreground/90 transition-colors w-full md:w-auto">
-              Send message →
-            </button>
+            <MagneticButton className="w-full md:w-auto">
+              <button type="submit" className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-3 rounded-full hover:bg-foreground/90 transition-colors w-full md:w-auto">
+                Send message →
+              </button>
+            </MagneticButton>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
 

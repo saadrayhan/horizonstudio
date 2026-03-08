@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useStaggerReveal } from "@/hooks/useReveal";
+import { Reveal, StaggerContainer, StaggerItem, HoverLift, MagneticButton, motion } from "@/components/motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import illustrationAbout from "@/assets/illustration-about.png";
@@ -28,89 +28,99 @@ const projects = [
 ];
 
 const Work = () => {
-  const { ref: svcRef, visibleItems: svcVis } = useStaggerReveal(services.length, 0.08, 80);
-  const { ref: strRef, visibleItems: strVis } = useStaggerReveal(strategies.length, 0.08, 80);
-  const { ref: projRef, visibleItems: projVis } = useStaggerReveal(projects.length, 0.05, 100);
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero — split with illustration like Titan offerings */}
+      {/* Hero */}
       <section className="pt-[72px] border-b border-border">
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
           <div className="px-6 lg:px-10 py-20 md:py-28">
-            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">All Offerings</p>
-            <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
+            <motion.p
+              className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              All Offerings
+            </motion.p>
+            <motion.h1
+              className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06]"
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.15 }}
+            >
               Here's what we <span className="italic">do</span>
-            </h1>
+            </motion.h1>
           </div>
-          <div className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0">
+          <motion.div
+            className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
+          >
             <img src={illustrationAbout} alt="Architecture illustration" className="w-full max-w-[280px] h-auto object-contain" />
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Services & Strategies — Two column like Titan offerings */}
+      {/* Services & Strategies */}
       <section className="border-b border-border">
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
           <div className="px-6 lg:px-10 py-16 border-r border-border">
-            <h2 className="font-serif text-[22px] text-foreground mb-6">Services we offer</h2>
-            <div ref={svcRef}>
-              {services.map((s, i) => (
-                <Link
-                  to={s.href}
-                  key={s.title}
-                  className={`list-row group flex items-center justify-between py-4 border-t border-border transition-all duration-400 ${
-                    svcVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-                  }`}
-                >
-                  <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
-                  <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
-                </Link>
+            <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">Services we offer</h2></Reveal>
+            <StaggerContainer>
+              {services.map((s) => (
+                <StaggerItem key={s.title}>
+                  <Link
+                    to={s.href}
+                    className="list-row group flex items-center justify-between py-4 border-t border-border"
+                  >
+                    <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
+                    <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
+                  </Link>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
           <div className="px-6 lg:px-10 py-16">
-            <h2 className="font-serif text-[22px] text-foreground mb-6">Our process</h2>
-            <div ref={strRef}>
-              {strategies.map((s, i) => (
-                <Link
-                  to={s.href}
-                  key={s.title}
-                  className={`list-row group flex items-center justify-between py-4 border-t border-border transition-all duration-400 ${
-                    strVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-                  }`}
-                >
-                  <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
-                  <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
-                </Link>
+            <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">Our process</h2></Reveal>
+            <StaggerContainer>
+              {strategies.map((s) => (
+                <StaggerItem key={s.title}>
+                  <Link
+                    to={s.href}
+                    className="list-row group flex items-center justify-between py-4 border-t border-border"
+                  >
+                    <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
+                    <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
+                  </Link>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
-      {/* Projects — list rows */}
+      {/* Projects */}
       <section className="border-b border-border">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16">
-          <h2 className="font-serif text-[22px] text-foreground mb-6">All projects</h2>
-          <div ref={projRef}>
-            {projects.map((p, i) => (
-              <Link
-                to={`/work/${p.slug}`}
-                key={p.slug}
-                className={`list-row group grid grid-cols-[60px_1fr_auto] md:grid-cols-[80px_1fr_180px_auto] items-center gap-4 py-5 border-t border-border transition-all duration-400 ${
-                  projVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-                }`}
-              >
-                <span className="text-[12px] font-mono text-muted-foreground">{p.year}</span>
-                <h3 className="text-[15px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.name}</h3>
-                <span className="text-[12px] text-muted-foreground hidden md:block">{p.category}</span>
-                <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
-              </Link>
+          <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">All projects</h2></Reveal>
+          <StaggerContainer>
+            {projects.map((p) => (
+              <StaggerItem key={p.slug}>
+                <Link
+                  to={`/work/${p.slug}`}
+                  className="list-row group grid grid-cols-[60px_1fr_auto] md:grid-cols-[80px_1fr_180px_auto] items-center gap-4 py-5 border-t border-border"
+                >
+                  <span className="text-[12px] font-mono text-muted-foreground">{p.year}</span>
+                  <h3 className="text-[15px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.name}</h3>
+                  <span className="text-[12px] text-muted-foreground hidden md:block">{p.category}</span>
+                  <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
