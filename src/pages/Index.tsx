@@ -119,7 +119,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto">
           <div className="px-6 lg:px-10 py-12">
             <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1]">
-              [STUDIO] matters most for <span className="italic">high-stakes decisions</span>
+              Horizon Studio matters most for <span className="italic">high-stakes decisions</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
