@@ -1,74 +1,99 @@
-import { useScrollAnimation } from "./useScrollAnimation";
+import { useSectionReveal } from "@/hooks/useSectionReveal";
+import { useBlurReveal } from "@/hooks/useBlurReveal";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const About = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible } = useSectionReveal(0.1);
+  const { ref: headRef, isVisible: headVisible } = useBlurReveal(0.15);
+  const { ref: countRef1, count: count1 } = useCountUp(100, 2000, 0.3);
+  const { ref: countRef2, count: count2 } = useCountUp(30, 1600, 0.3);
 
   return (
     <section
       id="about"
       ref={ref}
-      className="py-20 px-6 md:px-16"
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-16"
       style={{ backgroundColor: "#F5F4F0" }}
     >
-      <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-12 md:gap-16">
-        {/* Left column */}
-        <div
-          className="md:w-[45%]"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(16px)",
-            transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)",
-          }}
-        >
-          <span className="font-geist text-[11px] uppercase tracking-[0.12em] block mb-6" style={{ color: "#888880" }}>
-            THE TEAM
-          </span>
-          <h2 className="font-satoshi text-[28px] md:text-[40px] font-medium leading-[1.2]" style={{ color: "#0A0A09" }}>
-            A handpicked team driven by problem-solving and a deep disdain for mediocrity.
-          </h2>
-          <p className="font-satoshi text-[16px] leading-[1.7] mt-6" style={{ color: "#888880" }}>
-            No bloated processes. No unnecessary layers. We take individual ownership of every project and do whatever it takes to bring real value.
-          </p>
-        </div>
-
-        {/* Right column */}
-        <div
-          className="md:w-[55%] md:pl-16"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(16px)",
-            transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1) 100ms, transform 0.5s cubic-bezier(0.16,1,0.3,1) 100ms",
-          }}
-        >
-          {/* Placeholder image */}
-          <div
-            className="w-full rounded-2xl mb-10"
-            style={{ backgroundColor: "#E8E6E0", height: "400px" }}
-          />
-
-          {/* Stats */}
-          {[
-            { label: "PROJECTS DELIVERED", value: "12+" },
-            { label: "TEAM SIZE", value: "5" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="py-6"
-              style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
+      <div className="max-w-[1200px] mx-auto">
+        {/* Two-column layout like flabbergast */}
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          {/* Left — statement */}
+          <div className="lg:w-[50%]" ref={headRef}>
+            <h2
+              className={`font-satoshi text-[32px] md:text-[44px] lg:text-[52px] font-bold leading-[1.1] blur-reveal ${headVisible ? "visible" : ""}`}
+              style={{ color: "#0A0A09" }}
             >
-              <span className="font-geist text-[11px] uppercase tracking-[0.1em] block mb-3" style={{ color: "#888880" }}>
-                {stat.label}
-              </span>
+              A handpicked team of experts, driven by problem-solving and a deeply rooted disdain for mediocrity.
+            </h2>
+          </div>
+
+          {/* Right — description + stats */}
+          <div className="lg:w-[50%]">
+            <p
+              className="font-satoshi text-[17px] leading-[1.75] mb-16"
+              style={{
+                color: "#888880",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "all 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s",
+              }}
+            >
+              With no project managers, we take individual responsibility and do whatever it takes to bring value — taking ownership of every project. Unorthodox to some, but works for us. People here thrive on responsibility, constructive criticism, and high standards.
+            </p>
+
+            {/* Stats with counter animation */}
+            <div>
+              {/* Stat 1 */}
               <div
-                className="pl-5"
-                style={{ borderLeft: "2px solid rgba(0,0,0,0.15)" }}
+                className="py-8"
+                style={{
+                  borderTop: "1px solid rgba(0,0,0,0.06)",
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                  transition: "all 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s",
+                }}
               >
-                <span className="font-satoshi text-[56px] md:text-[72px] font-bold" style={{ color: "#0A0A09" }}>
-                  {stat.value}
+                <span className="font-geist text-[11px] uppercase tracking-[0.14em] block mb-4" style={{ color: "#888880" }}>
+                  DIGITAL PRODUCTS DELIVERED
                 </span>
+                <div
+                  ref={countRef1}
+                  className="flex items-baseline gap-1"
+                  style={{ borderLeft: "2px solid rgba(0,0,0,0.1)", paddingLeft: "16px" }}
+                >
+                  <span className="font-satoshi text-[64px] md:text-[80px] font-bold leading-[1]" style={{ color: "#0A0A09" }}>
+                    {count1}
+                  </span>
+                  <span className="font-satoshi text-[40px] font-bold" style={{ color: "#0A0A09" }}>+</span>
+                </div>
+              </div>
+
+              {/* Stat 2 */}
+              <div
+                className="py-8"
+                style={{
+                  borderTop: "1px solid rgba(0,0,0,0.06)",
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                  transition: "all 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s",
+                }}
+              >
+                <span className="font-geist text-[11px] uppercase tracking-[0.14em] block mb-4" style={{ color: "#888880" }}>
+                  NUMBER OF PEOPLE
+                </span>
+                <div
+                  ref={countRef2}
+                  className="flex items-baseline"
+                  style={{ borderLeft: "2px solid rgba(0,0,0,0.1)", paddingLeft: "16px" }}
+                >
+                  <span className="font-satoshi text-[64px] md:text-[80px] font-bold leading-[1]" style={{ color: "#0A0A09" }}>
+                    {count2}
+                  </span>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
