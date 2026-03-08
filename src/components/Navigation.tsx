@@ -6,38 +6,39 @@ const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const links = [
     { label: "WORK", href: "#work" },
-    { label: "ABOUT", href: "#philosophy" },
+    { label: "PROCESS", href: "#philosophy" },
+    { label: "ABOUT", href: "#about" },
     { label: "CONTACT", href: "#contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-studio-bg/90 backdrop-blur-md border-b border-studio-border"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-out"
+      style={{
+        backgroundColor: scrolled ? "#0F180F" : "transparent",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
+      }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[72px]">
-        {/* Logo - centered on desktop like Adaline */}
-        <a href="#" className="font-sans-body text-[13px] font-semibold tracking-[0.08em] uppercase text-studio-text">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[68px]">
+        {/* Logo */}
+        <a href="#" className="font-body text-[15px] font-medium text-cream">
           [STUDIO NAME]
         </a>
 
-        {/* Desktop links left */}
+        {/* Center links */}
         <div className="hidden md:flex items-center gap-10">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="link-underline font-sans-body text-[12px] tracking-[0.1em] font-medium text-studio-text"
+              className="font-body text-[11px] tracking-[0.12em] font-medium text-sage hover:text-cream transition-colors duration-150"
             >
               {l.label}
             </a>
@@ -48,7 +49,8 @@ const Navigation = () => {
         <div className="hidden md:block">
           <a
             href="#contact"
-            className="font-sans-body text-[12px] tracking-[0.08em] font-semibold uppercase px-6 py-3 rounded-full transition-all duration-200 active:scale-[0.97] bg-studio-green text-studio-cream hover:opacity-90"
+            className="font-body text-[13px] font-medium px-5 py-2.5 rounded-[6px] transition-opacity duration-150 hover:opacity-[0.88] active:scale-[0.97]"
+            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
           >
             Start a project
           </a>
@@ -56,22 +58,26 @@ const Navigation = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-studio-text"
+          className="md:hidden text-cream"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="md:hidden px-6 pb-8 pt-2 bg-studio-bg">
+        <div
+          className="md:hidden fixed inset-0 top-[68px] flex flex-col px-8 pt-8"
+          style={{ backgroundColor: "#0F180F" }}
+        >
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-4 font-sans-body text-[13px] tracking-[0.1em] font-medium text-studio-text border-b border-studio-border"
+              className="block py-5 font-body text-[14px] tracking-[0.1em] font-medium text-cream"
+              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
             >
               {l.label}
             </a>
@@ -79,7 +85,8 @@ const Navigation = () => {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="inline-block mt-6 font-sans-body text-[12px] tracking-[0.08em] font-semibold uppercase px-6 py-3 rounded-full bg-studio-green text-studio-cream"
+            className="inline-block mt-8 font-body text-[13px] font-medium px-5 py-3 rounded-[6px] w-fit"
+            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
           >
             Start a project
           </a>

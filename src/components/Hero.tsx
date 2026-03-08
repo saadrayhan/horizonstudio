@@ -1,45 +1,93 @@
-import heroLandscape from "@/assets/hero-landscape.jpg";
-
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col">
-      {/* Text content - centered over the top portion */}
-      <div className="relative z-10 flex flex-col items-center justify-center pt-[140px] md:pt-[160px] pb-12 px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+      {/* Atmospheric gradients */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(196,163,90,0.07), transparent)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 50% 40% at 50% 80%, rgba(30,60,30,0.6), transparent)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 text-center max-w-[700px]">
+        {/* Pill badge */}
+        <div
+          className="hero-animate inline-block font-body text-[11px] uppercase tracking-[0.1em] font-medium px-3.5 py-1.5 rounded-[20px] text-gold"
+          style={{
+            backgroundColor: "rgba(196,163,90,0.12)",
+            animationDelay: "0ms",
+          }}
+        >
+          Design-first product studio
+        </div>
+
+        {/* Headline */}
         <h1
-          className="font-serif-display text-[42px] sm:text-[56px] md:text-[72px] lg:text-[80px] leading-[1.08] text-center max-w-[900px] text-studio-text animate-fade-up"
+          className="hero-animate font-display text-[44px] md:text-[64px] lg:text-[80px] leading-[1.08] text-cream mt-4"
+          style={{ animationDelay: "100ms" }}
         >
-          Products built to think and feel right.
+          We build products founders are proud of.
         </h1>
+
+        {/* Subline */}
         <p
-          className="font-sans-body text-[15px] md:text-[16px] leading-[1.8] text-center max-w-[480px] mt-6 text-studio-muted animate-fade-up"
-          style={{ animationDelay: "150ms", animationFillMode: "both" }}
+          className="hero-animate font-body text-[16px] md:text-[18px] leading-[1.65] text-sage max-w-[460px] mx-auto mt-5"
+          style={{ animationDelay: "200ms" }}
         >
-          A design-first studio helping early-stage startups go from idea to shipped product.
+          A design-first studio for early-stage startups. We handle design and development — end to end, with craft and honesty.
         </p>
 
-        {/* Trusted by label */}
-        <span
-          className="section-label mt-10 animate-fade-up"
-          style={{ animationDelay: "300ms", animationFillMode: "both" }}
-        >
-          Trusted by founders worldwide
-        </span>
-      </div>
-
-      {/* Full-bleed landscape image */}
-      <div className="relative flex-1 min-h-[400px] md:min-h-[500px] animate-hero-fade">
-        <img
-          src={heroLandscape}
-          alt="Serene landscape with rolling hills, trees, and a reflective lake"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Gradient overlay at top for text readability */}
+        {/* CTAs */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "linear-gradient(to bottom, hsl(var(--studio-bg)) 0%, hsl(var(--studio-bg) / 0.6) 15%, transparent 40%)",
-          }}
-        />
+          className="hero-animate flex items-center justify-center gap-3 mt-9"
+          style={{ animationDelay: "340ms" }}
+        >
+          <a
+            href="#contact"
+            className="font-body text-[14px] font-medium px-6 py-3 rounded-lg transition-opacity duration-150 hover:opacity-[0.88] active:scale-[0.97]"
+            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
+          >
+            Start a project →
+          </a>
+          <a
+            href="#work"
+            className="font-body text-[14px] px-6 py-3 rounded-lg text-cream transition-opacity duration-150 hover:opacity-[0.85]"
+            style={{ border: "1px solid rgba(245,242,235,0.2)" }}
+          >
+            See our work
+          </a>
+        </div>
+
+        {/* Trusted by */}
+        <div
+          className="hero-animate mt-[72px]"
+          style={{ animationDelay: "500ms" }}
+        >
+          <div
+            className="inline-flex items-center gap-8 px-8 py-[18px] rounded-full"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.04)",
+              borderTop: "1px solid rgba(255,255,255,0.06)",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            }}
+          >
+            <span className="font-body text-[11px] uppercase tracking-[0.1em] text-sage">
+              Trusted by founders in
+            </span>
+            <div className="flex items-center gap-8">
+              <div className="w-[80px] h-[20px] rounded" style={{ backgroundColor: "rgba(255,255,255,0.12)" }} />
+              <div className="w-[80px] h-[20px] rounded" style={{ backgroundColor: "rgba(255,255,255,0.12)" }} />
+              <div className="hidden sm:block w-[80px] h-[20px] rounded" style={{ backgroundColor: "rgba(255,255,255,0.12)" }} />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

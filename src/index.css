@@ -4,86 +4,49 @@
 
 @layer base {
   :root {
-    --background: 40 20% 96%;
-    --foreground: 120 20% 10%;
+    /* Core dark forest palette */
+    --studio-base: 120 20% 10%;
+    --studio-surface: 120 18% 14%;
+    --studio-surface-hover: 120 18% 16%;
+    --studio-cream: 37 30% 94%;
+    --studio-sage: 90 8% 52%;
+    --studio-gold: 40 50% 56%;
+    --studio-gold-glow: 40 50% 56%;
+    --studio-divider: 0 0% 100%;
+    --studio-nav-bg: 120 25% 8%;
+    --studio-footer: 120 25% 6%;
+    --studio-footer-deep: 120 25% 5%;
 
-    --card: 40 20% 96%;
-    --card-foreground: 120 20% 10%;
-
-    --popover: 40 20% 96%;
-    --popover-foreground: 120 20% 10%;
-
-    --primary: 120 30% 18%;
-    --primary-foreground: 40 30% 95%;
-
-    --secondary: 40 18% 90%;
-    --secondary-foreground: 120 20% 10%;
-
-    --muted: 40 12% 90%;
-    --muted-foreground: 100 5% 45%;
-
-    --accent: 40 18% 90%;
-    --accent-foreground: 120 20% 10%;
-
+    /* Shadcn mapping */
+    --background: var(--studio-base);
+    --foreground: var(--studio-cream);
+    --card: var(--studio-surface);
+    --card-foreground: var(--studio-cream);
+    --popover: var(--studio-surface);
+    --popover-foreground: var(--studio-cream);
+    --primary: var(--studio-gold);
+    --primary-foreground: var(--studio-base);
+    --secondary: var(--studio-surface);
+    --secondary-foreground: var(--studio-cream);
+    --muted: var(--studio-surface);
+    --muted-foreground: var(--studio-sage);
+    --accent: var(--studio-surface);
+    --accent-foreground: var(--studio-cream);
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 40 12% 85%;
-    --input: 40 12% 85%;
-    --ring: 120 30% 18%;
-
+    --border: var(--studio-divider);
+    --input: var(--studio-divider);
+    --ring: var(--studio-gold);
     --radius: 0.5rem;
 
-    --sidebar-background: 40 20% 96%;
-    --sidebar-foreground: 120 20% 10%;
-    --sidebar-primary: 120 30% 18%;
-    --sidebar-primary-foreground: 40 30% 95%;
-    --sidebar-accent: 40 18% 90%;
-    --sidebar-accent-foreground: 120 20% 10%;
-    --sidebar-border: 40 12% 85%;
-    --sidebar-ring: 120 30% 18%;
-
-    /* Studio design tokens */
-    --studio-bg: 40 20% 96%;
-    --studio-cream: 40 30% 95%;
-    --studio-text: 120 20% 10%;
-    --studio-green: 120 30% 18%;
-    --studio-green-light: 120 15% 92%;
-    --studio-border: 40 12% 82%;
-    --studio-muted: 100 5% 45%;
-    --studio-card: 40 15% 93%;
-    --studio-warm: 35 40% 90%;
-    --studio-gold: 40 50% 55%;
-  }
-
-  .dark {
-    --background: 120 20% 6%;
-    --foreground: 40 20% 96%;
-    --card: 120 20% 6%;
-    --card-foreground: 40 20% 96%;
-    --popover: 120 20% 6%;
-    --popover-foreground: 40 20% 96%;
-    --primary: 100 30% 65%;
-    --primary-foreground: 120 20% 6%;
-    --secondary: 120 15% 12%;
-    --secondary-foreground: 40 20% 96%;
-    --muted: 120 15% 12%;
-    --muted-foreground: 40 10% 60%;
-    --accent: 120 15% 12%;
-    --accent-foreground: 40 20% 96%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 40 20% 96%;
-    --border: 120 15% 15%;
-    --input: 120 15% 15%;
-    --ring: 100 30% 65%;
-    --sidebar-background: 120 20% 8%;
-    --sidebar-foreground: 40 20% 96%;
-    --sidebar-primary: 100 30% 65%;
-    --sidebar-primary-foreground: 120 20% 6%;
-    --sidebar-accent: 120 15% 12%;
-    --sidebar-accent-foreground: 40 20% 96%;
-    --sidebar-border: 120 15% 15%;
-    --sidebar-ring: 100 30% 65%;
+    --sidebar-background: var(--studio-base);
+    --sidebar-foreground: var(--studio-cream);
+    --sidebar-primary: var(--studio-gold);
+    --sidebar-primary-foreground: var(--studio-base);
+    --sidebar-accent: var(--studio-surface);
+    --sidebar-accent-foreground: var(--studio-cream);
+    --sidebar-border: var(--studio-divider);
+    --sidebar-ring: var(--studio-gold);
   }
 }
 
@@ -93,27 +56,62 @@
   }
 
   body {
-    @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    background-color: #141F14;
+    color: #F5F2EB;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'DM Serif Display', serif;
   }
 }
 
 @layer utilities {
-  .font-serif-display {
-    font-family: 'Instrument Serif', serif;
+  .font-display {
+    font-family: 'DM Serif Display', serif;
   }
 
-  .font-sans-body {
+  .font-body {
     font-family: 'Inter', sans-serif;
   }
 
   .section-label {
-    @apply font-sans-body text-[11px] uppercase tracking-[0.14em] font-medium;
-    color: hsl(var(--studio-muted));
+    @apply font-body text-[11px] uppercase tracking-[0.12em] font-medium;
+    color: #C4A35A;
+  }
+
+  .text-cream {
+    color: #F5F2EB;
+  }
+
+  .text-sage {
+    color: #8A9180;
+  }
+
+  .text-gold {
+    color: #C4A35A;
+  }
+
+  .bg-base {
+    background-color: #141F14;
+  }
+
+  .bg-surface {
+    background-color: #1C2A1C;
+  }
+
+  .bg-surface-hover {
+    background-color: #203020;
+  }
+
+  .border-subtle {
+    border-color: rgba(255,255,255,0.07);
+  }
+
+  .border-divider {
+    border-color: rgba(255,255,255,0.06);
   }
 
   .link-underline {
@@ -131,26 +129,11 @@
   }
 }
 
-/* Hero landscape parallax-like fade */
-@keyframes hero-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-hero-fade {
-  animation: hero-fade-in 1.2s ease-out forwards;
-}
-
+/* Scroll animation base */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -159,13 +142,14 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.6s ease-out forwards;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fade-up-delayed {
+/* Hero sequential fade */
+@keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -173,21 +157,27 @@
   }
 }
 
+.hero-animate {
+  opacity: 0;
+  animation: hero-enter 0.4s ease-out forwards;
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
-
 ::-webkit-scrollbar-track {
-  background: hsl(var(--studio-bg));
+  background: #141F14;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--studio-border));
+  background: rgba(255,255,255,0.1);
   border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.15);
 }

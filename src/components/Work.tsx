@@ -2,14 +2,16 @@ import { useScrollAnimation } from "./useScrollAnimation";
 
 const projects = [
   {
-    category: "Fintech",
-    name: "Apex Dashboard",
-    desc: "Redesigned the core dashboard experience, resulting in 40% faster user onboarding.",
+    category: "Product Design + Dev",
+    name: "Branch Management System",
+    desc: "End-to-end product design for a multi-branch operations platform.",
+    year: "2025",
   },
   {
-    category: "Health Tech",
-    name: "Vero Health",
-    desc: "Full product design and development from zero to launch in 12 weeks.",
+    category: "UI/UX Design",
+    name: "EVwork Platform",
+    desc: "Workforce management platform for the EV industry.",
+    year: "2024",
   },
 ];
 
@@ -17,54 +19,69 @@ const Work = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="work" className="py-[140px] bg-studio-cream">
-      <div ref={ref} className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-20">
-          <span className="section-label block mb-5">Selected Work</span>
+    <section id="work" className="py-[140px] bg-base">
+      <div ref={ref} className="max-w-[1100px] mx-auto px-6 md:px-12">
+        <div className="text-center mb-14">
+          <span className="section-label block mb-3">Selected Work</span>
           <h2
-            className="font-serif-display text-[36px] md:text-[52px] lg:text-[60px] text-studio-text"
+            className="font-display text-[36px] md:text-[54px] text-cream"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(24px)",
-              transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
             A few things we've built.
           </h2>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-5 mt-14">
           {projects.map((p, i) => (
             <div
               key={i}
-              className="rounded-2xl overflow-hidden bg-studio-card group cursor-pointer transition-all duration-300 hover:shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+              className="rounded-[20px] p-8 md:p-12 grid grid-cols-1 md:grid-cols-[42%_58%] gap-8 items-center transition-all duration-[250ms] ease-out cursor-pointer group"
               style={{
+                backgroundColor: "#1C2A1C",
+                border: "1px solid rgba(255,255,255,0.07)",
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                transition: `opacity 0.6s ease-out ${(i + 1) * 150}ms, transform 0.6s ease-out ${(i + 1) * 150}ms`,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: `opacity 0.5s cubic-bezier(0.16,1,0.3,1) ${(i + 1) * 150}ms, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${(i + 1) * 150}ms, border-color 0.25s ease`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(196,163,90,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
               }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <span className="inline-block w-fit font-sans-body text-[11px] uppercase tracking-[0.1em] font-medium px-3 py-1.5 rounded-full mb-6 bg-studio-green-light text-studio-green">
-                    {p.category}
-                  </span>
-                  <h3 className="font-serif-display text-[28px] md:text-[36px] text-studio-text mb-3">
-                    {p.name}
-                  </h3>
-                  <p className="font-sans-body text-[14px] md:text-[15px] leading-[1.7] text-studio-muted">
-                    {p.desc}
-                  </p>
-                </div>
-                <div className="h-[220px] md:h-auto bg-studio-border transition-transform duration-500 group-hover:scale-[1.02]" />
+              {/* Left */}
+              <div>
+                <span
+                  className="inline-block font-body text-[11px] uppercase tracking-[0.1em] font-medium px-3 py-1.5 rounded-2xl text-gold"
+                  style={{ backgroundColor: "rgba(196,163,90,0.12)" }}
+                >
+                  {p.category}
+                </span>
+                <h3 className="font-display text-[28px] md:text-[36px] text-cream mt-4">
+                  {p.name}
+                </h3>
+                <p className="font-body text-[16px] leading-[1.65] text-sage mt-3">
+                  {p.desc}
+                </p>
+                <span className="font-body text-[12px] text-sage mt-2 block">{p.year}</span>
+                <span className="inline-block font-body text-[14px] text-gold mt-8 group-hover:translate-x-1 transition-transform duration-200">
+                  View project →
+                </span>
               </div>
+
+              {/* Right - placeholder screenshot */}
+              <div
+                className="rounded-xl aspect-[16/10]"
+                style={{ backgroundColor: "#111A11" }}
+              />
             </div>
           ))}
         </div>
-
-        <p className="text-center mt-14 font-sans-body text-[13px] tracking-[0.06em] text-studio-muted">
-          More work coming soon →
-        </p>
       </div>
     </section>
   );
