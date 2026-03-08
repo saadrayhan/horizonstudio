@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Instrument Serif"', 'serif'],
-        sans: ['"Inter"', 'sans-serif'],
+        display: ['"DM Serif Display"', 'serif'],
+        body: ['"Inter"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,18 +60,6 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
-        },
-        studio: {
-          bg: "hsl(var(--studio-bg))",
-          cream: "hsl(var(--studio-cream))",
-          text: "hsl(var(--studio-text))",
-          green: "hsl(var(--studio-green))",
-          "green-light": "hsl(var(--studio-green-light))",
-          border: "hsl(var(--studio-border))",
-          muted: "hsl(var(--studio-muted))",
-          card: "hsl(var(--studio-card))",
-          warm: "hsl(var(--studio-warm))",
-          gold: "hsl(var(--studio-gold))",
         },
       },
       borderRadius: {
