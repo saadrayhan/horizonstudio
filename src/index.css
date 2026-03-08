@@ -4,35 +4,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84% 60%;
+    --background: 225 6% 4%;
+    --foreground: 0 0% 93%;
+    --card: 225 6% 7%;
+    --card-foreground: 0 0% 93%;
+    --popover: 225 6% 7%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 0 0% 93%;
+    --primary-foreground: 225 6% 4%;
+    --secondary: 225 5% 11%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 225 5% 11%;
+    --muted-foreground: 240 5% 48%;
+    --accent: 225 5% 14%;
+    --accent-foreground: 0 0% 93%;
+    --destructive: 0 63% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
+    --border: 225 6% 12%;
+    --input: 225 6% 12%;
+    --ring: 240 5% 48%;
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 9%;
-    --sidebar-primary: 0 0% 9%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 9%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 0 0% 9%;
+    --sidebar-background: 225 6% 4%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 0 0% 93%;
+    --sidebar-primary-foreground: 225 6% 4%;
+    --sidebar-accent: 225 5% 11%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 225 6% 12%;
+    --sidebar-ring: 240 5% 48%;
+
+    --gradient-start: 258 90% 66%;
+    --gradient-mid: 210 100% 60%;
+    --gradient-end: 170 80% 50%;
   }
 }
 
@@ -43,19 +47,20 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    @apply bg-foreground text-background;
+    background: hsl(258 90% 66% / 0.3);
+    color: hsl(var(--foreground));
   }
 }
 
 @layer utilities {
-  .font-geist-mono {
-    font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   }
 }
 
@@ -64,43 +69,101 @@ html { scroll-behavior: smooth; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { @apply bg-background; }
-::-webkit-scrollbar-thumb { background: hsl(0 0% 80%); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(0 0% 60%); }
+::-webkit-scrollbar-track { background: hsl(225 6% 4%); }
+::-webkit-scrollbar-thumb { background: hsl(225 6% 16%); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(225 6% 24%); }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gradient-start)) 0%,
+    hsl(var(--gradient-mid)) 50%,
+    hsl(var(--gradient-end)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-subtle {
+  background: linear-gradient(
+    135deg,
+    hsl(0 0% 100%) 0%,
+    hsl(0 0% 60%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gradient-start) / 0.15),
+    hsl(var(--gradient-mid) / 0.08),
+    transparent 60%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
 
 /* Animations */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes blur-in {
-  from { opacity: 0; filter: blur(10px); transform: translateY(16px); }
+  from { opacity: 0; filter: blur(12px); transform: translateY(8px); }
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
 
-@keyframes counter-roll {
-  from { opacity: 0; transform: translateY(100%); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
-@keyframes line-grow {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes grid-line-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
 }
 
 .animate-fade-up {
-  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-blur-in {
-  animation: blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: blur-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.animate-slide-in {
+  animation: slide-in-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scroll reveal classes */
 .scroll-fade {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 
 .scroll-fade.visible {
@@ -111,12 +174,40 @@ html { scroll-behavior: smooth; }
 .scroll-blur {
   opacity: 0;
   filter: blur(10px);
-  transform: translateY(16px);
-  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), filter 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+  transform: translateY(12px);
+  transition: opacity 1s cubic-bezier(0.16,1,0.3,1), filter 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
 }
 
 .scroll-blur.visible {
   opacity: 1;
   filter: blur(0);
   transform: translateY(0);
+}
+
+/* Linear-style subtle noise overlay */
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Feature card hover glow */
+.feature-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  border-color: hsl(var(--gradient-start) / 0.2);
+  box-shadow: 0 0 40px -10px hsl(var(--gradient-start) / 0.1);
+}
+
+/* Radial gradient hero bg */
+.hero-gradient {
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% -20%, hsl(var(--gradient-start) / 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, hsl(var(--gradient-mid) / 0.08) 0%, transparent 50%),
+    hsl(var(--background));
 }

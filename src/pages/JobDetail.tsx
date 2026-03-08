@@ -34,7 +34,7 @@ const jobsData: Record<string, { title: string; type: string; location: string; 
     type: "Full-time",
     location: "Remote",
     team: "Engineering",
-    about: "We need a frontend engineer who cares about design quality as much as code quality. You'll implement pixel-perfect interfaces and work closely with our design team.",
+    about: "We need a frontend engineer who cares about design quality as much as code quality.",
     responsibilities: [
       "Build responsive, performant web applications with React and TypeScript",
       "Collaborate with designers to implement pixel-perfect UIs",
@@ -60,7 +60,7 @@ const jobsData: Record<string, { title: string; type: string; location: string; 
     type: "Full-time",
     location: "Remote / Dhaka",
     team: "Engineering",
-    about: "We're looking for a full-stack developer who can handle both frontend and backend development for client projects. You'll build complete products from the ground up.",
+    about: "We're looking for a full-stack developer who can handle both frontend and backend development for client projects.",
     responsibilities: [
       "Build full-stack web applications using React, Node.js, and PostgreSQL",
       "Design and implement APIs and database schemas",
@@ -86,7 +86,7 @@ const jobsData: Record<string, { title: string; type: string; location: string; 
     type: "Internship",
     location: "Dhaka",
     team: "Design",
-    about: "A 3-month internship for aspiring product designers. You'll work alongside our senior designers on real client projects and build a professional portfolio.",
+    about: "A 3-month internship for aspiring product designers. You'll work alongside our senior designers on real client projects.",
     responsibilities: [
       "Assist with UI design tasks on client projects",
       "Help maintain and expand design systems",
@@ -115,11 +115,11 @@ const JobDetail = () => {
 
   if (!job) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background noise-overlay">
         <Navbar />
-        <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[800px] mx-auto text-center">
-          <h1 className="text-4xl font-semibold">Job not found</h1>
-          <Link to="/careers" className="text-muted-foreground mt-4 inline-block hover:underline">← Back to careers</Link>
+        <section className="pt-32 pb-20 px-6 lg:px-10 max-w-[800px] mx-auto text-center">
+          <h1 className="text-4xl font-semibold text-foreground">Job not found</h1>
+          <Link to="/careers" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to careers</Link>
         </section>
         <Footer />
       </div>
@@ -127,84 +127,64 @@ const JobDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background noise-overlay">
       <Navbar />
 
-      <section className="pt-32 pb-20 px-6 lg:px-12 max-w-[800px] mx-auto">
+      <section className="pt-32 pb-20 px-6 lg:px-10 max-w-[800px] mx-auto">
         <Link to="/careers" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 mb-8">
           ← Back to careers
         </Link>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
           <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{job.team}</span>
-          <span className="text-muted-foreground">·</span>
-          <span className="text-[12px] font-mono text-muted-foreground bg-secondary px-3 py-1 rounded-full">{job.type}</span>
+          <span className="text-muted-foreground/30">·</span>
+          <span className="text-[11px] font-mono text-muted-foreground px-2.5 py-0.5 rounded-md border border-border">{job.type}</span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight animate-blur-in">{job.title}</h1>
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] animate-blur-in text-foreground">{job.title}</h1>
 
-        <div className="flex items-center gap-6 mt-6 pb-8 border-b border-border">
-          <div className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-muted-foreground">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span className="text-[14px] text-muted-foreground">{job.location}</span>
-          </div>
+        <div className="flex items-center gap-2 mt-6 pb-8 border-b border-border">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-muted-foreground">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span className="text-[13px] text-muted-foreground">{job.location}</span>
         </div>
 
         {/* About */}
         <div className="mt-10">
-          <h2 className="text-lg font-semibold mb-4">About this role</h2>
-          <p className="text-[15px] text-foreground/80 leading-relaxed">{job.about}</p>
+          <h2 className="text-[16px] font-semibold mb-4 text-foreground">About this role</h2>
+          <p className="text-[15px] text-foreground/75 leading-relaxed">{job.about}</p>
         </div>
 
-        {/* Responsibilities */}
-        <div className="mt-10">
-          <h2 className="text-lg font-semibold mb-4">Responsibilities</h2>
-          <ul className="space-y-3">
-            {job.responsibilities.map((r, i) => (
-              <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/80">
-                <span className="text-muted-foreground mt-1 shrink-0">—</span>
-                {r}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Sections */}
+        {[
+          { title: "Responsibilities", items: job.responsibilities },
+          { title: "Requirements", items: job.requirements },
+          { title: "Nice to have", items: job.niceToHave },
+        ].map((section) => (
+          <div key={section.title} className="mt-10">
+            <h2 className="text-[16px] font-semibold mb-4 text-foreground">{section.title}</h2>
+            <ul className="space-y-3">
+              {section.items.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/75">
+                  <span className="text-muted-foreground mt-1.5 shrink-0 text-[8px]">◆</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-        {/* Requirements */}
-        <div className="mt-10">
-          <h2 className="text-lg font-semibold mb-4">Requirements</h2>
-          <ul className="space-y-3">
-            {job.requirements.map((r, i) => (
-              <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/80">
-                <span className="text-muted-foreground mt-1 shrink-0">—</span>
-                {r}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Nice to have */}
-        <div className="mt-10">
-          <h2 className="text-lg font-semibold mb-4">Nice to have</h2>
-          <ul className="space-y-3">
-            {job.niceToHave.map((r, i) => (
-              <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/80">
-                <span className="text-muted-foreground mt-1 shrink-0">—</span>
-                {r}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Apply CTA */}
+        {/* Apply */}
         <div className="mt-16 pt-8 border-t border-border">
-          <h2 className="text-2xl font-semibold">Interested?</h2>
-          <p className="text-muted-foreground mt-2 mb-6">Send us your portfolio and a brief note about why you'd be a great fit.</p>
+          <h2 className="text-2xl font-semibold text-foreground">Interested?</h2>
+          <p className="text-muted-foreground mt-2 mb-6 text-[15px]">
+            Send us your portfolio and a brief note about why you'd be a great fit.
+          </p>
           <a
             href={`mailto:careers@studio.dev?subject=Application: ${job.title}`}
-            className="inline-block text-[14px] font-medium bg-foreground text-background px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity"
+            className="inline-block text-[13px] font-medium text-primary-foreground bg-foreground px-7 py-3 rounded-lg hover:bg-foreground/90 transition-colors"
           >
             Apply for this role →
           </a>
