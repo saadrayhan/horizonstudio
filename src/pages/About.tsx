@@ -42,7 +42,7 @@ const About = () => {
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
           <div className="px-6 lg:px-10 py-20 md:py-28 flex flex-col justify-end">
             <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
-              [STUDIO] is a design-first <span className="italic">product studio</span>
+              Horizon Studio is a design-first <span className="italic">product studio</span>
             </h1>
             <p className="text-[14px] text-muted-foreground mt-5 max-w-[420px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
               We build products for startups and growing companies — with craft, conviction, and transparency.
