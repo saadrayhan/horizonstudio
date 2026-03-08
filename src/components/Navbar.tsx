@@ -30,16 +30,16 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-          scrolled ? "bg-background/92 backdrop-blur-xl border-border" : "bg-background border-border"
+          scrolled ? "bg-background backdrop-blur-xl border-border" : "bg-background border-border"
         }`}
       >
         <div className="max-w-[1240px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
-              <span className="text-[11px] font-bold text-primary-foreground">S</span>
+              <span className="text-[11px] font-bold text-primary-foreground">H</span>
             </div>
-            <span className="text-[15px] font-semibold text-foreground tracking-tight">[STUDIO]</span>
+            <span className="text-[15px] font-semibold text-foreground tracking-tight">Horizon Studio</span>
           </Link>
 
           {/* Desktop nav — pill container */}
@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-6 h-[72px] border-b border-border">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
-              <span className="text-[11px] font-bold text-primary-foreground">S</span>
+              <span className="text-[11px] font-bold text-primary-foreground">H</span>
             </div>
           </Link>
           <button onClick={() => setMenuOpen(false)} className="p-2 text-foreground">

@@ -7,11 +7,11 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
 
 const team = [
-  { name: "Ahmed R.", role: "Founder & Design Lead" },
-  { name: "Farhan K.", role: "Full-Stack Developer" },
-  { name: "Nadia S.", role: "UX Researcher" },
-  { name: "Tanvir H.", role: "Frontend Engineer" },
-  { name: "Riya M.", role: "Visual Designer" },
+  { name: "Saad Rayhan", role: "Creative Director & CEO" },
+  { name: "Joy Sorkar", role: "CTO & Backend Developer" },
+  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager" },
+  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development" },
+  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative" },
 ];
 
 const principles = [
@@ -42,7 +42,7 @@ const About = () => {
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
           <div className="px-6 lg:px-10 py-20 md:py-28 flex flex-col justify-end">
             <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
-              [STUDIO] is a design-first <span className="italic">product studio</span>
+              Horizon Studio is a design-first <span className="italic">product studio</span>
             </h1>
             <p className="text-[14px] text-muted-foreground mt-5 max-w-[420px] leading-relaxed animate-blur-in" style={{ animationDelay: "150ms" }}>
               We build products for startups and growing companies — with craft, conviction, and transparency.
