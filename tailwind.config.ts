@@ -14,12 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"DM Serif Display"', 'serif'],
-        body: ['"Inter"', 'sans-serif'],
+        satoshi: ['"Satoshi"', 'sans-serif'],
+        geist: ['"Geist Mono"', 'monospace'],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
+        border: "hsl(var(--border) / 0.08)",
+        input: "hsl(var(--input) / 0.08)",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

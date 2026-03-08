@@ -4,82 +4,67 @@ const FooterCTA = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <>
-      {/* CTA content */}
-      <section id="contact" className="pt-[140px] pb-0 bg-base">
-        <div
-          ref={ref}
-          className="max-w-[700px] mx-auto px-6 md:px-12 text-center"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)",
-          }}
-        >
-          {/* Pill */}
-          <span
-            className="inline-block font-body text-[11px] uppercase tracking-[0.1em] font-medium px-3.5 py-1.5 rounded-[20px] text-gold mb-4"
-            style={{ backgroundColor: "rgba(196,163,90,0.12)" }}
-          >
-            Let's talk
+    <section id="contact" className="py-[140px] px-6 md:px-16" style={{ backgroundColor: "#000000" }}>
+      <div
+        ref={ref}
+        className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(12px)",
+          transition: "opacity 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1)",
+        }}
+      >
+        {/* Left */}
+        <div>
+          <span className="font-geist text-[11px] uppercase tracking-[0.1em]" style={{ color: "#333330" }}>
+            CONTACT
           </span>
-
-          <h2 className="font-display text-[42px] md:text-[60px] lg:text-[72px] text-cream leading-[1.05] max-w-[680px] mx-auto">
+          <h2
+            className="font-satoshi text-[36px] md:text-[64px] font-bold leading-[1.0] mt-6"
+            style={{ color: "#FFFFFF" }}
+          >
             Have something worth building?
           </h2>
-          <p className="font-body text-[16px] md:text-[18px] text-sage leading-[1.65] max-w-[460px] mx-auto mt-5">
+          <p
+            className="font-satoshi text-[17px] leading-[1.6] mt-6 max-w-[400px]"
+            style={{ color: "#666660" }}
+          >
             Tell us about your project. We'll tell you honestly if we're the right team for it.
           </p>
           <a
-            href="mailto:hello@studio.com"
-            className="inline-block font-body text-[15px] font-medium px-8 py-3 rounded-lg mt-10 transition-opacity duration-150 hover:opacity-[0.88] active:scale-[0.97]"
-            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
+            href="mailto:hello@studio.dev"
+            className="inline-block font-satoshi text-[14px] font-medium px-[28px] py-[10px] rounded mt-10 transition-colors duration-150"
+            style={{ backgroundColor: "#FFFFFF", color: "#000000" }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F0F0E8")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}
           >
             Start a project →
           </a>
         </div>
 
-        {/* Landscape SVG */}
-        <div className="mt-20 w-full overflow-hidden" style={{ lineHeight: 0 }}>
-          <svg
-            viewBox="0 0 1440 220"
-            className="w-full h-[140px] md:h-[220px]"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Layer 1 - back hills */}
-            <path
-              d="M0,120 C240,60 480,90 720,70 C960,50 1200,80 1440,100 L1440,220 L0,220 Z"
-              fill="#1C2A1C"
-            />
-            {/* Layer 2 */}
-            <path
-              d="M0,140 C180,100 420,120 660,95 C900,70 1100,110 1440,120 L1440,220 L0,220 Z"
-              fill="#172217"
-            />
-            {/* Dock silhouette */}
-            <rect x="700" y="108" width="40" height="2" fill="#0C140C" rx="1" />
-            <rect x="708" y="102" width="2" height="8" fill="#0C140C" />
-            <rect x="730" y="102" width="2" height="8" fill="#0C140C" />
-            {/* Layer 3 */}
-            <path
-              d="M0,160 C300,130 500,145 720,125 C940,105 1200,140 1440,145 L1440,220 L0,220 Z"
-              fill="#131D13"
-            />
-            {/* Layer 4 */}
-            <path
-              d="M0,175 C200,155 500,170 720,150 C940,130 1150,165 1440,160 L1440,220 L0,220 Z"
-              fill="#0F180F"
-            />
-            {/* Layer 5 - front, most dramatic */}
-            <path
-              d="M0,195 C300,170 600,185 820,175 C1040,165 1300,190 1440,180 L1440,220 L0,220 Z"
-              fill="#0C140C"
-            />
-          </svg>
+        {/* Right — contact details */}
+        <div className="flex flex-col justify-end">
+          {[
+            { label: "EMAIL", value: "hello@[studio].dev" },
+            { label: "BASED IN", value: "Dhaka, Bangladesh" },
+            { label: "AVAILABLE FOR", value: "Projects worldwide" },
+          ].map((row, i) => (
+            <div
+              key={i}
+              className="py-5"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <span className="font-geist text-[11px] uppercase tracking-[0.1em] block" style={{ color: "#333330" }}>
+                {row.label}
+              </span>
+              <span className="font-satoshi text-[15px] block mt-1" style={{ color: "#FFFFFF" }}>
+                {row.value}
+              </span>
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
