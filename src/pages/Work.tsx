@@ -14,30 +14,32 @@ const projects = [
 const ProjectRow = ({ p, i }: { p: typeof projects[0]; i: number }) => {
   const { ref, visible } = useReveal(0.1);
   return (
-    <Link
-      to={`/work/${p.slug}`}
+    <div
       ref={ref}
-      className="group grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 py-10 border-b border-border scroll-fade"
+      className="scroll-fade"
       style={{
         transitionDelay: `${i * 80}ms`,
         ...(visible ? { opacity: 1, transform: "translateY(0)" } : {}),
       }}
     >
-      <div className="aspect-[16/10] bg-secondary rounded-lg overflow-hidden">
-        <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
-      </div>
-      <div className="flex flex-col justify-center">
-        <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{p.category}</span>
-        <h3 className="text-2xl md:text-3xl font-semibold mt-2 group-hover:underline">{p.name}</h3>
-        <p className="text-[14px] text-muted-foreground mt-3">{p.desc}</p>
-        <div className="flex items-center gap-4 mt-6">
-          <span className="text-[13px] font-mono text-muted-foreground">{p.year}</span>
-          <span className="text-[13px] text-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            View project →
-          </span>
+      <Link
+        to={`/work/${p.slug}`}
+        className="group grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 py-10 border-b border-border"
+      >
+        <div className="aspect-[16/10] bg-secondary rounded-lg overflow-hidden">
+          <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
         </div>
-      </div>
-    </Link>
+        <div className="flex flex-col justify-center">
+          <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">{p.category}</span>
+          <h3 className="text-2xl md:text-3xl font-semibold mt-2 group-hover:underline">{p.name}</h3>
+          <p className="text-[14px] text-muted-foreground mt-3">{p.desc}</p>
+          <div className="flex items-center gap-4 mt-6">
+            <span className="text-[13px] font-mono text-muted-foreground">{p.year}</span>
+            <span className="text-[13px] text-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200">View project →</span>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 };
 
@@ -46,18 +48,14 @@ const Work = () => (
     <Navbar />
     <section className="pt-32 pb-8 px-6 lg:px-12 max-w-[1200px] mx-auto">
       <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Our Work</p>
-      <h1 className="text-4xl md:text-6xl font-semibold tracking-tight animate-blur-in">
-        Selected projects.
-      </h1>
+      <h1 className="text-4xl md:text-6xl font-semibold tracking-tight animate-blur-in">Selected projects.</h1>
       <p className="text-muted-foreground mt-4 max-w-[480px] animate-blur-in" style={{ animationDelay: "150ms" }}>
         A collection of products we've designed and built for startups and growing companies.
       </p>
     </section>
     <div className="border-t border-border" />
     <section className="py-8 px-6 lg:px-12 max-w-[1200px] mx-auto">
-      {projects.map((p, i) => (
-        <ProjectRow key={p.slug} p={p} i={i} />
-      ))}
+      {projects.map((p, i) => <ProjectRow key={p.slug} p={p} i={i} />)}
     </section>
     <Footer />
   </div>

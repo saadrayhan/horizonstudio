@@ -19,26 +19,27 @@ const services = [
 const ProjectCard = ({ p, i }: { p: typeof projects[0]; i: number }) => {
   const { ref, visible } = useReveal(0.1);
   return (
-    <Link
-      to={`/work/${p.slug}`}
+    <div
       ref={ref}
-      className="group block scroll-fade"
+      className="scroll-fade"
       style={{
         transitionDelay: `${i * 80}ms`,
         ...(visible ? { opacity: 1, transform: "translateY(0)" } : {}),
       }}
     >
-      <div className="aspect-[16/10] bg-secondary rounded-lg mb-5 overflow-hidden">
-        <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
-      </div>
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-lg font-semibold text-foreground group-hover:underline">{p.name}</h3>
-          <p className="text-[13px] text-muted-foreground mt-1">{p.category}</p>
+      <Link to={`/work/${p.slug}`} className="group block">
+        <div className="aspect-[16/10] bg-secondary rounded-lg mb-5 overflow-hidden">
+          <div className="w-full h-full bg-muted group-hover:scale-[1.02] transition-transform duration-500" />
         </div>
-        <span className="text-[13px] text-muted-foreground font-mono">{p.year}</span>
-      </div>
-    </Link>
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-foreground group-hover:underline">{p.name}</h3>
+            <p className="text-[13px] text-muted-foreground mt-1">{p.category}</p>
+          </div>
+          <span className="text-[13px] text-muted-foreground font-mono">{p.year}</span>
+        </div>
+      </Link>
+    </div>
   );
 };
 
@@ -57,8 +58,8 @@ const Index = () => {
 
       {/* Hero */}
       <section className="pt-32 pb-24 px-6 lg:px-12 max-w-[1200px] mx-auto">
-        <div className={`${loaded ? "animate-blur-in" : "opacity-0"}`}>
-          <p className="text-[13px] text-muted-foreground font-mono mb-6" style={{ animationDelay: "100ms" }}>
+        <div className={loaded ? "animate-blur-in" : "opacity-0"}>
+          <p className="text-[13px] text-muted-foreground font-mono mb-6">
             Design & Development Studio
           </p>
         </div>
@@ -78,109 +79,78 @@ const Index = () => {
           className={`flex items-center gap-4 mt-10 ${loaded ? "animate-blur-in" : "opacity-0"}`}
           style={{ animationDelay: "500ms" }}
         >
-          <Link
-            to="/contact"
-            className="text-[14px] font-medium bg-foreground text-background px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
-          >
+          <Link to="/contact" className="text-[14px] font-medium bg-foreground text-background px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
             Start a project →
           </Link>
-          <Link
-            to="/work"
-            className="text-[14px] font-medium text-foreground px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-colors"
-          >
+          <Link to="/work" className="text-[14px] font-medium text-foreground px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-colors">
             See our work
           </Link>
         </div>
       </section>
 
-      {/* Divider */}
       <div className="border-t border-border" />
 
       {/* Stats */}
       <section ref={statsRef} className="py-20 px-6 lg:px-12 max-w-[1200px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { label: "Projects delivered", refEl: c1Ref, val: c1, suffix: "+" },
-            { label: "Team members", refEl: c2Ref, val: c2, suffix: "" },
-            { label: "Founded", refEl: null, val: "2026", suffix: "" },
-            { label: "Location", refEl: null, val: "Dhaka", suffix: "" },
-          ].map((s, i) => (
-            <div
-              key={i}
-              className="scroll-fade"
-              ref={s.refEl || undefined}
-              style={{
-                transitionDelay: `${i * 100}ms`,
-                ...(statsVisible ? { opacity: 1, transform: "translateY(0)" } : {}),
-              }}
-            >
-              <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">{s.label}</p>
-              <p className="text-4xl md:text-5xl font-semibold text-foreground">
-                {typeof s.val === "number" ? s.val : s.val}{s.suffix}
-              </p>
-            </div>
-          ))}
+          <div ref={c1Ref} className="scroll-fade" style={{ transitionDelay: "0ms", ...(statsVisible ? { opacity: 1, transform: "translateY(0)" } : {}) }}>
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Projects delivered</p>
+            <p className="text-4xl md:text-5xl font-semibold text-foreground">{c1}+</p>
+          </div>
+          <div ref={c2Ref} className="scroll-fade" style={{ transitionDelay: "100ms", ...(statsVisible ? { opacity: 1, transform: "translateY(0)" } : {}) }}>
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Team members</p>
+            <p className="text-4xl md:text-5xl font-semibold text-foreground">{c2}</p>
+          </div>
+          <div className="scroll-fade" style={{ transitionDelay: "200ms", ...(statsVisible ? { opacity: 1, transform: "translateY(0)" } : {}) }}>
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Founded</p>
+            <p className="text-4xl md:text-5xl font-semibold text-foreground">2026</p>
+          </div>
+          <div className="scroll-fade" style={{ transitionDelay: "300ms", ...(statsVisible ? { opacity: 1, transform: "translateY(0)" } : {}) }}>
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Location</p>
+            <p className="text-4xl md:text-5xl font-semibold text-foreground">Dhaka</p>
+          </div>
         </div>
       </section>
 
-      {/* Divider */}
       <div className="border-t border-border" />
 
       {/* Selected Work */}
       <section className="py-20 px-6 lg:px-12 max-w-[1200px] mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-2xl font-semibold">Selected Work</h2>
-          <Link to="/work" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">
-            View all →
-          </Link>
+          <Link to="/work" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors">View all →</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.slug} p={p} i={i} />
-          ))}
+          {projects.map((p, i) => <ProjectCard key={p.slug} p={p} i={i} />)}
         </div>
       </section>
 
-      {/* Divider */}
       <div className="border-t border-border" />
 
       {/* Services */}
       <section ref={servRef} className="py-20 px-6 lg:px-12 max-w-[1200px] mx-auto">
         <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">What we do</p>
-        <h2 className="text-2xl md:text-4xl font-semibold max-w-[500px] mb-12">
-          Three ways we help you build.
-        </h2>
-        <div className="space-y-0">
-          {services.map((s, i) => (
-            <div
-              key={i}
-              className="group grid grid-cols-1 md:grid-cols-[60px_1fr_1fr] gap-4 py-8 border-t border-border scroll-fade cursor-default"
-              style={{
-                transitionDelay: `${i * 100}ms`,
-                ...(servVisible ? { opacity: 1, transform: "translateY(0)" } : {}),
-              }}
-            >
-              <span className="text-[13px] font-mono text-muted-foreground">{s.num}</span>
-              <h3 className="text-xl font-semibold text-foreground group-hover:translate-x-1 transition-transform duration-200">{s.name}</h3>
-              <p className="text-[14px] text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-2xl md:text-4xl font-semibold max-w-[500px] mb-12">Three ways we help you build.</h2>
+        {services.map((s, i) => (
+          <div
+            key={i}
+            className="group grid grid-cols-1 md:grid-cols-[60px_1fr_1fr] gap-4 py-8 border-t border-border scroll-fade"
+            style={{ transitionDelay: `${i * 100}ms`, ...(servVisible ? { opacity: 1, transform: "translateY(0)" } : {}) }}
+          >
+            <span className="text-[13px] font-mono text-muted-foreground">{s.num}</span>
+            <h3 className="text-xl font-semibold text-foreground group-hover:translate-x-1 transition-transform duration-200">{s.name}</h3>
+            <p className="text-[14px] text-muted-foreground leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
       </section>
 
-      {/* Divider */}
       <div className="border-t border-border" />
 
       {/* CTA */}
       <section className="py-24 px-6 lg:px-12 max-w-[1200px] mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-semibold">Have something worth building?</h2>
-        <p className="text-muted-foreground mt-4 max-w-[420px] mx-auto">
-          Tell us about your project. We'll tell you honestly if we're the right team.
-        </p>
-        <Link
-          to="/contact"
-          className="inline-block mt-8 text-[14px] font-medium bg-foreground text-background px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity"
-        >
+        <p className="text-muted-foreground mt-4 max-w-[420px] mx-auto">Tell us about your project. We'll tell you honestly if we're the right team.</p>
+        <Link to="/contact" className="inline-block mt-8 text-[14px] font-medium bg-foreground text-background px-8 py-3.5 rounded-lg hover:opacity-90 transition-opacity">
           Start a project →
         </Link>
       </section>

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 
-export function useReveal(threshold = 0.12) {
-  const ref = useRef<HTMLElement>(null);
+export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.12) {
+  const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -13,11 +13,11 @@ export function useReveal(threshold = 0.12) {
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
-  return { ref, visible };
+  return { ref: ref as RefObject<T>, visible };
 }
 
 export function useCountUp(target: number, duration = 1600, threshold = 0.3) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   useEffect(() => {
