@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useStaggerReveal } from "@/hooks/useReveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import illustrationAbout from "@/assets/illustration-about.png";
 
 const services = [
   { title: "Product Design", href: "/work" },
@@ -9,6 +10,13 @@ const services = [
   { title: "Full-Stack Development", href: "/work" },
   { title: "Branding & Identity", href: "/work" },
   { title: "Product Strategy", href: "/work" },
+];
+
+const strategies = [
+  { title: "Discovery & Research", href: "/work" },
+  { title: "Prototyping & Testing", href: "/work" },
+  { title: "Incremental Delivery", href: "/work" },
+  { title: "Launch & Iteration", href: "/work" },
 ];
 
 const projects = [
@@ -21,42 +29,63 @@ const projects = [
 
 const Work = () => {
   const { ref: svcRef, visibleItems: svcVis } = useStaggerReveal(services.length, 0.08, 80);
+  const { ref: strRef, visibleItems: strVis } = useStaggerReveal(strategies.length, 0.08, 80);
   const { ref: projRef, visibleItems: projVis } = useStaggerReveal(projects.length, 0.05, 100);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero — Split like Titan offerings */}
+      {/* Hero — split with illustration like Titan offerings */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">All Work</p>
-          <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
-            Here's what we <span className="italic">do</span>
-          </h1>
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
+          <div className="px-6 lg:px-10 py-20 md:py-28">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">All Offerings</p>
+            <h1 className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06] animate-blur-in">
+              Here's what we <span className="italic">do</span>
+            </h1>
+          </div>
+          <div className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0">
+            <img src={illustrationAbout} alt="Architecture illustration" className="w-full max-w-[280px] h-auto object-contain" />
+          </div>
         </div>
       </section>
 
-      {/* Services — Two column list with arrows like Titan Offerings */}
+      {/* Services & Strategies — Two column like Titan offerings */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
-            <div>
-              <h2 className="font-serif text-[22px] text-foreground mb-6">Services we offer</h2>
-              <div ref={svcRef}>
-                {services.map((s, i) => (
-                  <Link
-                    to={s.href}
-                    key={s.title}
-                    className={`list-row group flex items-center justify-between py-4 border-t border-border transition-all duration-400 ${
-                      svcVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-                    }`}
-                  >
-                    <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
-                    <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
-                  </Link>
-                ))}
-              </div>
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 border-r border-border">
+            <h2 className="font-serif text-[22px] text-foreground mb-6">Services we offer</h2>
+            <div ref={svcRef}>
+              {services.map((s, i) => (
+                <Link
+                  to={s.href}
+                  key={s.title}
+                  className={`list-row group flex items-center justify-between py-4 border-t border-border transition-all duration-400 ${
+                    svcVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                  }`}
+                >
+                  <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
+                  <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="px-6 lg:px-10 py-16">
+            <h2 className="font-serif text-[22px] text-foreground mb-6">Our process</h2>
+            <div ref={strRef}>
+              {strategies.map((s, i) => (
+                <Link
+                  to={s.href}
+                  key={s.title}
+                  className={`list-row group flex items-center justify-between py-4 border-t border-border transition-all duration-400 ${
+                    strVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                  }`}
+                >
+                  <span className="text-[15px] text-foreground group-hover:text-muted-foreground transition-colors">{s.title}</span>
+                  <span className="text-foreground/40 group-hover:text-foreground group-hover:translate-x-1 transition-all">→</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

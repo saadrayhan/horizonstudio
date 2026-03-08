@@ -3,7 +3,7 @@ import { useCountUp, useStaggerReveal, useReveal } from "@/hooks/useReveal";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroImg from "@/assets/hero-landscape.jpg";
+import heroIllustration from "@/assets/illustration-hero.png";
 import processImg from "@/assets/process-image.jpg";
 import caseStudyImg from "@/assets/case-study-1.jpg";
 
@@ -46,11 +46,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ===== HERO — Split grid with visible border ===== */}
+      {/* ===== HERO — Split grid with illustration ===== */}
       <section className="pt-[72px] border-b border-border">
         <div className="max-w-[1240px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] min-h-[calc(100vh-72px)]">
-            {/* Left */}
             <div className="flex flex-col justify-end px-6 lg:px-10 py-16 md:py-20">
               <h1
                 className={`font-serif text-[42px] md:text-[52px] lg:text-[60px] text-foreground leading-[1.06] ${loaded ? "animate-blur-in" : "opacity-0"}`}
@@ -81,27 +80,22 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right — image with left border */}
-            <div className={`hidden md:block border-l border-border ${loaded ? "animate-blur-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
+            {/* Right — illustration */}
+            <div className={`hidden md:flex items-end justify-center border-l border-border px-10 pb-0 ${loaded ? "animate-blur-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
               <img
-                src={heroImg}
-                alt="Studio"
-                className="w-full h-full object-cover"
+                src={heroIllustration}
+                alt="City skyline illustration"
+                className="w-full max-w-[480px] h-auto object-contain"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats strip — bordered grid cells */}
+      {/* Stats strip — 4 equal bordered cells */}
       <section className="border-b border-border">
         <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4">
-          <div className="px-6 lg:px-10 py-6 md:col-span-1 border-r border-border">
-            <p className="text-[14px] text-muted-foreground leading-relaxed">
-              We help startups design, build, and ship products that solve real problems.
-            </p>
-          </div>
-          <div className="px-6 lg:px-10 py-6 border-r border-border hidden md:block">
+          <div className="px-6 lg:px-10 py-6 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Avg. Delivery</p>
             <p className="text-[28px] font-serif text-foreground mt-1">8 weeks</p>
           </div>
@@ -109,23 +103,28 @@ const Index = () => {
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Projects</p>
             <p className="text-[28px] font-mono font-semibold text-foreground mt-1">{c1}+</p>
           </div>
-          <div ref={c2Ref} className="px-6 lg:px-10 py-6">
+          <div ref={c2Ref} className="px-6 lg:px-10 py-6 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Team</p>
             <p className="text-[28px] font-mono font-semibold text-foreground mt-1">{c2}</p>
+          </div>
+          <div className="px-6 lg:px-10 py-6">
+            <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Fee</p>
+            <p className="text-[28px] font-mono font-semibold text-foreground mt-1">$0</p>
           </div>
         </div>
       </section>
 
-      {/* ===== MATTERS MOST — 3 clickable rows ===== */}
+      {/* ===== MATTERS MOST — 3 bordered columns ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1] mb-14">
-            [STUDIO] matters most for <span className="italic">high-stakes decisions</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="max-w-[1240px] mx-auto">
+          <div className="px-6 lg:px-10 py-12">
+            <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1]">
+              [STUDIO] matters most for <span className="italic">high-stakes decisions</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
             {decisions.map((d, i) => (
-              <div key={i} className={`px-0 md:px-6 py-8 md:py-0 border-t md:border-t-0 md:border-l border-border first:border-t-0 first:md:border-l-0 first:md:pl-0`}>
+              <div key={i} className="px-6 lg:px-10 py-8 border-b md:border-b-0 md:border-r border-border last:border-r-0 last:border-b-0">
                 <h3 className="text-[16px] font-semibold text-foreground mb-3 leading-snug">{d.title}</h3>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">{d.desc}</p>
               </div>
@@ -134,13 +133,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== HOW WE ADD VALUE — numbered rows with grid ===== */}
+      {/* ===== HOW WE ADD VALUE — numbered rows ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
           <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1] mb-4">
             How we add value
           </h2>
-          <div ref={howRef} className="mt-12">
+          <div ref={howRef} className="mt-10">
             {howSteps.map((step, i) => (
               <div
                 key={i}
@@ -154,7 +153,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <div className="mt-8 pt-6 border-t border-border">
+          <div className="mt-6 pt-6 border-t border-border">
             <Link
               to="/about"
               className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors inline-flex"
@@ -165,30 +164,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== BENTO SECTION — Photo + text asymmetric grid ===== */}
+      {/* ===== BENTO — Photo + text asymmetric grid ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Left — large text block */}
-            <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center">
-              <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
-                Let us <span className="italic">show you</span> our best work
-              </h2>
-              <p className="text-[14px] text-muted-foreground mt-4 max-w-[380px] leading-relaxed">
-                Every project gets our full attention. We don't scale — we focus.
-              </p>
-            </div>
-            {/* Right — image */}
-            <div className="border-l border-border hidden md:block">
-              <img src={processImg} alt="Our process" className="w-full h-full object-cover aspect-[4/3]" />
-            </div>
+        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center border-r border-border">
+            <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
+              Let us <span className="italic">show you</span> our best work
+            </h2>
+            <p className="text-[14px] text-muted-foreground mt-4 max-w-[380px] leading-relaxed">
+              Every project gets our full attention. We don't scale — we focus.
+            </p>
+          </div>
+          <div>
+            <img src={processImg} alt="Our process" className="w-full h-full object-cover aspect-[4/3]" />
           </div>
         </div>
       </section>
 
-      {/* ===== SELECTED WORK — list rows with arrows ===== */}
+      {/* ===== SELECTED WORK — list rows ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
+        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
           <div className="flex items-end justify-between mb-2">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground">
               Selected <span className="italic">projects</span>
@@ -221,27 +216,27 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== TEAM — grid with photos ===== */}
+      {/* ===== TEAM — bordered columns ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 md:py-28">
-          <div className="flex items-end justify-between mb-12">
+        <div className="max-w-[1240px] mx-auto">
+          <div className="px-6 lg:px-10 py-12">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground">
               Meet the <span className="italic">advisors</span> you'll work with
             </h2>
           </div>
 
-          <div ref={teamRef} className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+          <div ref={teamRef} className="grid grid-cols-1 sm:grid-cols-3 border-t border-border">
             {team.map((m, i) => (
               <div
                 key={m.name}
-                className={`border-l border-border first:border-l-0 px-0 sm:px-6 first:sm:pl-0 py-6 sm:py-0 border-t sm:border-t-0 first:border-t-0 transition-all duration-500 ${
+                className={`border-r border-border last:border-r-0 border-b sm:border-b-0 last:border-b-0 px-6 lg:px-10 py-8 transition-all duration-500 ${
                   teamVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
                 <p className="font-serif text-[22px] text-foreground italic mb-3">
                   {m.name.split(' ')[0]}<br/>{m.name.split(' ')[1] || ''}
                 </p>
-                <div className="aspect-[3/4] bg-muted rounded-none overflow-hidden mb-4">
+                <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
                   <img src={processImg} alt={m.name} className="w-full h-full object-cover grayscale" />
                 </div>
               </div>
@@ -250,7 +245,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== CASE STUDY — Bento asymmetric with stats ===== */}
+      {/* ===== CASE STUDY — bordered split ===== */}
       <section className="border-b border-border">
         <div className="max-w-[1240px] mx-auto">
           <div
@@ -259,8 +254,7 @@ const Index = () => {
               caseVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* Left text */}
-            <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center">
+            <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center border-r border-border">
               <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Client Spotlight</p>
               <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
                 How we redesigned a fashion brand's <span className="italic">mobile experience</span>
@@ -276,7 +270,6 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Stats in bordered grid */}
               <div className="grid grid-cols-2 mt-10 border-t border-border">
                 <div className="py-4 pr-6 border-r border-border">
                   <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Conversion</p>
@@ -293,8 +286,7 @@ const Index = () => {
               </Link>
             </div>
 
-            {/* Right image */}
-            <div className="border-l border-border hidden md:block">
+            <div>
               <img src={caseStudyImg} alt="Case study" className="w-full h-full object-cover" />
             </div>
           </div>
