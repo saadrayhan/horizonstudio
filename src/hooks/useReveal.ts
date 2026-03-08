@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export function useReveal(threshold = 0.12) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -17,7 +17,7 @@ export function useReveal(threshold = 0.12) {
 }
 
 export function useCountUp(target: number, duration = 1600, threshold = 0.3) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   useEffect(() => {
