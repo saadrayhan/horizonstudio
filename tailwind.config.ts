@@ -14,17 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        satoshi: ['"Satoshi"', 'sans-serif'],
-        geist: ['"Geist Mono"', 'monospace'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'monospace'],
       },
       colors: {
-        "warm-base": "hsl(var(--warm-base))",
-        "dark-surface": "hsl(var(--dark-surface))",
-        "primary-text": "hsl(var(--primary-text))",
-        "secondary-text": "hsl(var(--secondary-text))",
-        "accent-red": "hsl(var(--accent-red))",
-        border: "hsl(var(--border) / 0.08)",
-        input: "hsl(var(--input) / 0.08)",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
