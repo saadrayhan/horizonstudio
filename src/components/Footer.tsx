@@ -64,11 +64,11 @@ const Footer = () => (
               {links.map((l) => {
                 const isExternal = l.href.startsWith("http");
                 return isExternal ? (
-                  <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white hover:underline hover:decoration-dashed hover:underline-offset-4 transition-colors">
+                  <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white hover:underline hover:underline-offset-4 transition-colors">
                     {l.label}
                   </a>
                 ) : (
-                  <Link key={l.label} to={l.href} className="text-[13px] text-white/50 hover:text-white hover:underline hover:decoration-dashed hover:underline-offset-4 transition-colors">
+                  <Link key={l.label} to={l.href} className="text-[13px] text-white/50 hover:text-white hover:underline hover:underline-offset-4 transition-colors">
                     {l.label}
                   </Link>
                 );
