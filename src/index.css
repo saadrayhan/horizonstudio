@@ -4,49 +4,43 @@
 
 @layer base {
   :root {
-    /* Core dark forest palette */
-    --studio-base: 120 20% 10%;
-    --studio-surface: 120 18% 14%;
-    --studio-surface-hover: 120 18% 16%;
-    --studio-cream: 37 30% 94%;
-    --studio-sage: 90 8% 52%;
-    --studio-gold: 40 50% 56%;
-    --studio-gold-glow: 40 50% 56%;
-    --studio-divider: 0 0% 100%;
-    --studio-nav-bg: 120 25% 8%;
-    --studio-footer: 120 25% 6%;
-    --studio-footer-deep: 120 25% 5%;
+    --studio-black: 0 0% 0%;
+    --studio-surface: 0 0% 4%;
+    --studio-white: 0 0% 100%;
+    --studio-secondary: 50 2% 40%;
+    --studio-tertiary: 50 2% 20%;
+    --studio-accent: 50 20% 93%;
+    --studio-border: 0 0% 100%;
 
-    /* Shadcn mapping */
-    --background: var(--studio-base);
-    --foreground: var(--studio-cream);
+    --background: var(--studio-black);
+    --foreground: var(--studio-white);
     --card: var(--studio-surface);
-    --card-foreground: var(--studio-cream);
+    --card-foreground: var(--studio-white);
     --popover: var(--studio-surface);
-    --popover-foreground: var(--studio-cream);
-    --primary: var(--studio-gold);
-    --primary-foreground: var(--studio-base);
+    --popover-foreground: var(--studio-white);
+    --primary: var(--studio-white);
+    --primary-foreground: var(--studio-black);
     --secondary: var(--studio-surface);
-    --secondary-foreground: var(--studio-cream);
+    --secondary-foreground: var(--studio-white);
     --muted: var(--studio-surface);
-    --muted-foreground: var(--studio-sage);
+    --muted-foreground: var(--studio-secondary);
     --accent: var(--studio-surface);
-    --accent-foreground: var(--studio-cream);
+    --accent-foreground: var(--studio-white);
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: var(--studio-divider);
-    --input: var(--studio-divider);
-    --ring: var(--studio-gold);
-    --radius: 0.5rem;
+    --border: var(--studio-border);
+    --input: var(--studio-border);
+    --ring: var(--studio-white);
+    --radius: 0.25rem;
 
-    --sidebar-background: var(--studio-base);
-    --sidebar-foreground: var(--studio-cream);
-    --sidebar-primary: var(--studio-gold);
-    --sidebar-primary-foreground: var(--studio-base);
+    --sidebar-background: var(--studio-black);
+    --sidebar-foreground: var(--studio-white);
+    --sidebar-primary: var(--studio-white);
+    --sidebar-primary-foreground: var(--studio-black);
     --sidebar-accent: var(--studio-surface);
-    --sidebar-accent-foreground: var(--studio-cream);
-    --sidebar-border: var(--studio-divider);
-    --sidebar-ring: var(--studio-gold);
+    --sidebar-accent-foreground: var(--studio-white);
+    --sidebar-border: var(--studio-border);
+    --sidebar-ring: var(--studio-white);
   }
 }
 
@@ -56,84 +50,76 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #141F14;
-    color: #F5F2EB;
+    font-family: 'Satoshi', sans-serif;
+    background-color: #000000;
+    color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Serif Display', serif;
+  ::selection {
+    background-color: #FFFFFF;
+    color: #000000;
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: 'DM Serif Display', serif;
+  .font-satoshi {
+    font-family: 'Satoshi', sans-serif;
   }
 
-  .font-body {
-    font-family: 'Inter', sans-serif;
+  .font-geist {
+    font-family: 'Geist Mono', monospace;
   }
 
-  .section-label {
-    @apply font-body text-[11px] uppercase tracking-[0.12em] font-medium;
-    color: #C4A35A;
+  .text-primary-white {
+    color: #FFFFFF;
   }
 
-  .text-cream {
-    color: #F5F2EB;
+  .text-secondary-gray {
+    color: #666660;
   }
 
-  .text-sage {
-    color: #8A9180;
+  .text-tertiary-gray {
+    color: #333330;
   }
 
-  .text-gold {
-    color: #C4A35A;
+  .text-accent-warm {
+    color: #F0F0E8;
   }
 
-  .bg-base {
-    background-color: #141F14;
+  .bg-pure-black {
+    background-color: #000000;
   }
 
   .bg-surface {
-    background-color: #1C2A1C;
-  }
-
-  .bg-surface-hover {
-    background-color: #203020;
+    background-color: #0A0A0A;
   }
 
   .border-subtle {
-    border-color: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.08);
   }
 
-  .border-divider {
+  .border-faint {
     border-color: rgba(255,255,255,0.06);
   }
 
-  .link-underline {
-    @apply relative;
+  .meta-label {
+    @apply font-geist text-[11px] uppercase tracking-[0.1em];
+    color: #333330;
   }
 
-  .link-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-full h-[1px] origin-bottom-right scale-x-0 transition-transform duration-300;
-    background-color: currentColor;
-  }
-
-  .link-underline:hover::after {
-    @apply origin-bottom-left scale-x-100;
+  .meta-label-mid {
+    @apply font-geist text-[11px] uppercase tracking-[0.1em];
+    color: #666660;
   }
 }
 
-/* Scroll animation base */
+/* Scroll animation */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -142,14 +128,14 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Hero sequential fade */
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -169,15 +155,15 @@ html {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #141F14;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
 }
