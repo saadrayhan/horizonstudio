@@ -1,18 +1,18 @@
 const Footer = () => {
-  const links = ["Work", "Process", "About", "Contact"];
+  const links = ["Work", "About", "Process", "Contact"];
 
   return (
     <footer
-      className="py-7"
+      className="px-6 md:px-16 py-6"
       style={{
-        backgroundColor: "#0C140C",
-        borderTop: "1px solid rgba(255,255,255,0.05)",
+        backgroundColor: "#000000",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Left */}
-        <span className="font-body text-[13px] text-sage">
-          [STUDIO NAME]
+        <span className="font-geist text-[11px]" style={{ color: "#333330" }}>
+          © 2026 [STUDIO NAME]
         </span>
 
         {/* Center links */}
@@ -21,7 +21,10 @@ const Footer = () => {
             <a
               key={l}
               href={`#${l.toLowerCase()}`}
-              className="font-body text-[12px] uppercase tracking-[0.1em] text-sage hover:text-cream transition-colors duration-150"
+              className="font-geist text-[11px] uppercase tracking-[0.1em] transition-colors duration-150"
+              style={{ color: "#333330" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#333330")}
             >
               {l}
             </a>
@@ -29,8 +32,8 @@ const Footer = () => {
         </div>
 
         {/* Right */}
-        <span className="font-body text-[12px]" style={{ color: "#4A5A44" }}>
-          © 2026 [STUDIO NAME]
+        <span className="font-geist text-[11px]" style={{ color: "#333330" }}>
+          DHAKA · WORLDWIDE
         </span>
       </div>
     </footer>

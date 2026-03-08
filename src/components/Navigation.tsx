@@ -13,8 +13,8 @@ const Navigation = () => {
 
   const links = [
     { label: "WORK", href: "#work" },
-    { label: "PROCESS", href: "#philosophy" },
     { label: "ABOUT", href: "#about" },
+    { label: "PROCESS", href: "#process" },
     { label: "CONTACT", href: "#contact" },
   ];
 
@@ -22,13 +22,13 @@ const Navigation = () => {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-out"
       style={{
-        backgroundColor: scrolled ? "#0F180F" : "transparent",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
+        backgroundColor: "#000000",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[68px]">
+      <div className="w-full px-6 md:px-16 flex items-center justify-between h-[48px]">
         {/* Logo */}
-        <a href="#" className="font-body text-[15px] font-medium text-cream">
+        <a href="#" className="font-satoshi text-[14px] font-medium tracking-[0.02em]" style={{ color: "#FFFFFF" }}>
           [STUDIO NAME]
         </a>
 
@@ -38,46 +38,55 @@ const Navigation = () => {
             <a
               key={l.label}
               href={l.href}
-              className="font-body text-[11px] tracking-[0.12em] font-medium text-sage hover:text-cream transition-colors duration-150"
+              className="font-geist text-[11px] uppercase tracking-[0.1em] transition-colors duration-150"
+              style={{ color: "#666660" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#666660")}
             >
               {l.label}
             </a>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden md:block">
+        {/* Right */}
+        <div className="hidden md:flex items-center gap-6">
+          <span className="font-geist text-[11px]" style={{ color: "#333330" }}>
+            GMT+6
+          </span>
           <a
             href="#contact"
-            className="font-body text-[13px] font-medium px-5 py-2.5 rounded-[6px] transition-opacity duration-150 hover:opacity-[0.88] active:scale-[0.97]"
-            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
+            className="font-satoshi text-[13px] font-medium px-[18px] py-[8px] rounded transition-colors duration-150"
+            style={{ backgroundColor: "#FFFFFF", color: "#000000" }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F0F0E8")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}
           >
-            Start a project
+            Start a project →
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-cream"
+          className="md:hidden"
+          style={{ color: "#FFFFFF" }}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+          {mobileOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
       </div>
 
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
-          className="md:hidden fixed inset-0 top-[68px] flex flex-col px-8 pt-8"
-          style={{ backgroundColor: "#0F180F" }}
+          className="md:hidden fixed inset-0 top-[48px] flex flex-col px-6 pt-12"
+          style={{ backgroundColor: "#000000" }}
         >
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-5 font-body text-[14px] tracking-[0.1em] font-medium text-cream"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+              className="block py-5 font-satoshi text-[16px] font-medium"
+              style={{ color: "#FFFFFF", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
             >
               {l.label}
             </a>
@@ -85,10 +94,10 @@ const Navigation = () => {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="inline-block mt-8 font-body text-[13px] font-medium px-5 py-3 rounded-[6px] w-fit"
-            style={{ backgroundColor: "#C4A35A", color: "#141F14" }}
+            className="inline-block mt-10 font-satoshi text-[14px] font-medium px-[28px] py-[10px] rounded w-fit"
+            style={{ backgroundColor: "#FFFFFF", color: "#000000" }}
           >
-            Start a project
+            Start a project →
           </a>
         </div>
       )}
