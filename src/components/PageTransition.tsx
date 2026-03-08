@@ -1,37 +1,31 @@
-import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { type ReactNode } from "react";
 
 interface PageTransitionProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
-  const [displayChildren, setDisplayChildren] = useState(children);
-  const [stage, setStage] = useState<"enter" | "exit">("enter");
-  const prevPath = useRef(location.pathname);
-
-  useEffect(() => {
-    if (location.pathname !== prevPath.current) {
-      // Start exit
-      setStage("exit");
-      const timeout = setTimeout(() => {
-        prevPath.current = location.pathname;
-        setDisplayChildren(children);
-        setStage("enter");
-      }, 280);
-      return () => clearTimeout(timeout);
-    } else {
-      setDisplayChildren(children);
-    }
-  }, [location.pathname, children]);
 
   return (
-    <div
-      className={`page-transition ${stage === "enter" ? "page-enter" : "page-exit"}`}
-    >
-      {displayChildren}
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 30,
+          mass: 0.8,
+        }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
