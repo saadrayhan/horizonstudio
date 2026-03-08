@@ -5,10 +5,10 @@
 @layer base {
   :root {
     --warm-base: 40 7% 95%;
-    --dark-surface: 60 4% 7%;
+    --dark-surface: 60 2% 7%;
     --card-white: 0 0% 100%;
     --primary-text: 60 5% 4%;
-    --secondary-text: 50 3% 52%;
+    --secondary-text: 48 3% 52%;
     --accent-red: 12 78% 47%;
     --card-border: 0 0% 0%;
     --card-shadow-color: 0 0% 0%;
@@ -57,6 +57,7 @@
     color: #0A0A09;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -75,11 +76,45 @@
   }
 }
 
-/* Scroll animation */
-@keyframes fade-up {
+/* ===== BLUR REVEAL ===== */
+@keyframes blur-reveal {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    filter: blur(12px);
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+.blur-reveal {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(24px);
+}
+
+.blur-reveal.visible {
+  animation: blur-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger children */
+.blur-reveal-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.blur-reveal-stagger > *:nth-child(2) { animation-delay: 80ms; }
+.blur-reveal-stagger > *:nth-child(3) { animation-delay: 160ms; }
+.blur-reveal-stagger > *:nth-child(4) { animation-delay: 240ms; }
+.blur-reveal-stagger > *:nth-child(5) { animation-delay: 320ms; }
+.blur-reveal-stagger > *:nth-child(6) { animation-delay: 400ms; }
+.blur-reveal-stagger > *:nth-child(7) { animation-delay: 480ms; }
+.blur-reveal-stagger > *:nth-child(8) { animation-delay: 560ms; }
+
+/* ===== SECTION RISE ===== */
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
   }
   to {
     opacity: 1;
@@ -87,15 +122,20 @@
   }
 }
 
-.animate-fade-up {
-  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.section-rise {
+  opacity: 0;
+  transform: translateY(60px);
 }
 
-/* Hero sequential fade */
-@keyframes hero-enter {
+.section-rise.visible {
+  animation: section-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== SLOW FADE UP ===== */
+@keyframes slow-fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -103,24 +143,85 @@
   }
 }
 
-.hero-animate {
+.slow-fade-up {
   opacity: 0;
-  animation: hero-enter 0.5s ease-out forwards;
+  transform: translateY(40px);
 }
 
-/* Scroll triggered */
-.scroll-reveal {
+.slow-fade-up.visible {
+  animation: slow-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== HERO SEQUENTIAL ===== */
+@keyframes hero-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-blur-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: hero-blur-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ===== SCALE ENTRANCE ===== */
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-/* Blink cursor */
+.card-rise {
+  opacity: 0;
+  transform: translateY(80px) scale(0.96);
+}
+
+.card-rise.visible {
+  animation: card-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== LINE DRAW ===== */
+@keyframes line-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.line-draw {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.line-draw.visible {
+  animation: line-draw 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== WORD STAGGER (for red footer) ===== */
+@keyframes word-pop {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* ===== BLINK CURSOR ===== */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -130,12 +231,42 @@
   animation: blink 1s step-end infinite;
 }
 
-/* Smooth scroll */
+/* ===== COUNTER ROLL ===== */
+@keyframes counter-roll {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.counter-roll {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.counter-roll-inner {
+  display: inline-block;
+  animation: counter-roll 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== PARALLAX-SUBTLE ===== */
+.parallax-subtle {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ===== SMOOTH SCROLL ===== */
 html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar */
+/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -148,4 +279,87 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
+}
+
+/* ===== MAGNETIC HOVER ===== */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic-hover:hover {
+  transform: scale(0.97);
+}
+
+.magnetic-hover:active {
+  transform: scale(0.94);
+  transition-duration: 0.12s;
+}
+
+/* ===== ROW HOVER ===== */
+.service-row {
+  transition: background-color 0.3s ease;
+}
+
+.service-row:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* ===== PROJECT HOVER ===== */
+.project-entry {
+  transition: background-color 0.4s ease;
+}
+
+.project-entry:hover .project-pill {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-pill {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ===== MENU OVERLAY ===== */
+@keyframes menu-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-link-animate {
+  opacity: 0;
+  animation: menu-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== WORD-BY-WORD REVEAL ===== */
+@keyframes word-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.word-clip {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.word-clip > span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.word-clip.visible > span {
+  animation: word-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

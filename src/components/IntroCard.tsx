@@ -1,80 +1,73 @@
-import { useScrollAnimation } from "./useScrollAnimation";
+import { useSectionReveal } from "@/hooks/useSectionReveal";
+import { useBlurReveal } from "@/hooks/useBlurReveal";
 
 const IntroCard = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible } = useSectionReveal(0.1);
+  const { ref: headRef, isVisible: headVisible } = useBlurReveal(0.2);
 
   return (
     <section
       ref={ref}
-      className="py-20 px-6 md:px-16"
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-16"
       style={{ backgroundColor: "#F5F4F0" }}
     >
+      {/* Top label - left aligned, like flabbergast */}
       <div
-        className="max-w-[1100px] mx-auto rounded-3xl p-10 md:p-16"
+        className="max-w-[1200px] mx-auto mb-8"
         style={{
-          backgroundColor: "#FFFFFF",
-          border: "1px solid rgba(0,0,0,0.08)",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.08)",
           opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "translateY(0)" : "translateY(16px)",
-          transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)",
+          transform: isVisible ? "translateY(0)" : "translateY(20px)",
+          transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
-        <div className="flex flex-col md:flex-row">
-          {/* Left column */}
-          <div className="md:w-[55%]">
-            <span className="font-geist text-[11px] uppercase tracking-[0.12em] block mb-6" style={{ color: "#888880" }}>
-              ABOUT US
-            </span>
-            <h2 className="font-satoshi text-[28px] md:text-[52px] font-medium leading-[1.15]" style={{ color: "#0A0A09" }}>
-              It takes more than deliverables — you need a team that understands your product, challenges your assumptions, and ships work worth being proud of.
-            </h2>
-          </div>
+        <span className="font-geist text-[11px] uppercase tracking-[0.14em] block" style={{ color: "#888880" }}>
+          STUNNINGLY SIMPLE — OUR APPROACH IS FOCUSED ON UNCOMPLICATED AND COMMON SENSE SOLUTIONS.
+        </span>
+      </div>
 
-          {/* Right column */}
-          <div
-            className="md:w-[45%] md:pl-16 mt-10 md:mt-0 pt-10 md:pt-0"
-            style={{ borderLeft: "none", borderTop: "1px solid rgba(0,0,0,0.08)" }}
-          >
-            <div className="hidden md:block" style={{ borderLeft: "1px solid rgba(0,0,0,0.08)", paddingLeft: "64px", height: "100%" }}>
-              <p className="font-satoshi text-[17px] leading-[1.7] mb-8" style={{ color: "#888880" }}>
-                We're a design-first product studio. Five people. No middlemen. We design and build end-to-end — and we care deeply about the quality of everything we ship.
-              </p>
-              <a
-                href="#contact"
-                className="inline-block font-satoshi text-[13px] font-medium uppercase tracking-[0.06em] rounded-lg transition-colors duration-150 cursor-pointer"
-                style={{
-                  backgroundColor: "#0A0A09",
-                  color: "#FFFFFF",
-                  padding: "12px 28px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333330")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0A0A09")}
-              >
-                LET'S TALK
-              </a>
-            </div>
-            {/* Mobile version without border-left */}
-            <div className="md:hidden">
-              <p className="font-satoshi text-[17px] leading-[1.7] mb-8" style={{ color: "#888880" }}>
-                We're a design-first product studio. Five people. No middlemen. We design and build end-to-end — and we care deeply about the quality of everything we ship.
-              </p>
-              <a
-                href="#contact"
-                className="inline-block font-satoshi text-[13px] font-medium uppercase tracking-[0.06em] rounded-lg transition-colors duration-150 cursor-pointer"
-                style={{
-                  backgroundColor: "#0A0A09",
-                  color: "#FFFFFF",
-                  padding: "12px 28px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333330")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0A0A09")}
-              >
-                LET'S TALK
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Giant statement — full width, no card, like flabbergast intro */}
+      <div
+        ref={headRef}
+        className="max-w-[1200px] mx-auto"
+      >
+        <h2
+          className={`font-satoshi text-[36px] md:text-[56px] lg:text-[72px] font-bold leading-[1.08] blur-reveal ${headVisible ? "visible" : ""}`}
+          style={{ color: "#0A0A09" }}
+        >
+          It takes more than just deliverables — you need direct communicators, resourceful experts and sharp thinkers.
+        </h2>
+      </div>
+
+      {/* CTA */}
+      <div
+        className="max-w-[1200px] mx-auto mt-12"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(20px)",
+          transition: "all 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s",
+        }}
+      >
+        <a
+          href="#contact"
+          className="magnetic-hover inline-flex items-center justify-center font-satoshi text-[12px] font-medium uppercase tracking-[0.08em] rounded-lg cursor-pointer"
+          style={{
+            border: "1px solid rgba(0,0,0,0.15)",
+            backgroundColor: "transparent",
+            color: "#0A0A09",
+            padding: "14px 36px",
+            transition: "all 0.2s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#0A0A09";
+            e.currentTarget.style.color = "#FFFFFF";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.color = "#0A0A09";
+          }}
+        >
+          LET'S TALK
+        </a>
       </div>
     </section>
   );
