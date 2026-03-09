@@ -7,6 +7,7 @@ import teamGroup1 from "@/assets/team-group-1.jpg";
 import teamGroup2 from "@/assets/team-group-2.jpg";
 import teamGroup3 from "@/assets/team-group-3.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
+import teamMahfuz from "@/assets/team-mahfuz.jpg";
 const team = [
 { name: "Saad Rayhan", role: "Creative Director & CEO", photo: "/lovable-uploads/98a33dc6-48ee-45c1-87d0-1313131baeae.webp" },
 { name: "Joy Sorkar", role: "CTO & Backend Developer", photo: "/lovable-uploads/371f2ac4-8789-4623-be4f-bbc578b951cc.jpg" },
