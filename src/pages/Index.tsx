@@ -30,9 +30,9 @@ const projects = [
 ];
 
 const team = [
-  { name: "Saad R.", role: "Creative Director & CEO" },
-  { name: "Joy S.", role: "CTO & Backend Developer" },
-  { name: "Maqibul T.", role: "Product Designer & Sales" },
+  { name: "Saad R.", role: "Creative Director & CEO", photo: teamSaad },
+  { name: "Joy S.", role: "CTO & Backend Developer", photo: teamJoy },
+  { name: "Maqibul T.", role: "Product Designer & Sales", photo: teamTamim },
 ];
 
 const Index = () => {
