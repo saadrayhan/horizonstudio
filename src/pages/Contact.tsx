@@ -8,9 +8,9 @@ const Contact = () => (
     <Navbar />
 
     <section className="pt-[72px] border-b border-border">
-      <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
         {/* Left — info */}
-        <div className="px-6 lg:px-10 py-20 md:py-28 border-r border-border">
+        <div className="px-[50px] py-20 md:py-28 border-r border-border">
           <motion.h1
             className="font-serif text-[40px] md:text-[48px] text-foreground leading-[1.08]"
             initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -49,7 +49,7 @@ const Contact = () => (
 
         {/* Right — form */}
         <motion.div
-          className="px-6 lg:px-10 py-20 md:py-28"
+          className="px-[50px] py-20 md:py-28"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}

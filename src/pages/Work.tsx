@@ -34,8 +34,8 @@ const Work = () => {
 
       {/* Hero */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <div className="px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-[50px] py-20 md:py-28">
             <motion.p
               className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3"
               initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ const Work = () => {
             </motion.h1>
           </div>
           <motion.div
-            className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0"
+            className="border-l border-border hidden md:flex items-end justify-center px-[50px] pb-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
@@ -66,8 +66,8 @@ const Work = () => {
 
       {/* Services & Strategies */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <div className="px-6 lg:px-10 py-16 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div className="px-[50px] py-16 border-r border-border">
             <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">Services we offer</h2></Reveal>
             <StaggerContainer>
               {services.map((s) => (
@@ -83,7 +83,7 @@ const Work = () => {
               ))}
             </StaggerContainer>
           </div>
-          <div className="px-6 lg:px-10 py-16">
+          <div className="px-[50px] py-16">
             <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">Our process</h2></Reveal>
             <StaggerContainer>
               {strategies.map((s) => (
@@ -104,7 +104,7 @@ const Work = () => {
 
       {/* Projects */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16">
+        <div className="mx-auto px-[50px] py-16">
           <Reveal><h2 className="font-serif text-[22px] text-foreground mb-6">All projects</h2></Reveal>
           <StaggerContainer>
             {projects.map((p) => (

@@ -52,7 +52,7 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <section className="pt-[72px] py-28 px-6 max-w-[1240px] mx-auto text-center">
+        <section className="pt-[72px] py-28 px-[50px] mx-auto text-center">
           <h1 className="font-serif text-4xl text-foreground italic">Project not found</h1>
           <Link to="/work" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to work</Link>
         </section>
@@ -71,7 +71,7 @@ const ProjectDetail = () => {
 
       {/* Header */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <div className="mx-auto px-[50px] py-16 md:py-20">
           <Link to="/work" className="text-[12px] font-mono text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider mb-8 inline-block">← Back</Link>
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end">
             <div>
@@ -102,21 +102,21 @@ const ProjectDetail = () => {
 
       {/* Hero image */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
+        <div className="mx-auto">
           <div className="aspect-[16/9] bg-muted animate-blur-in" style={{ animationDelay: "350ms" }} />
         </div>
       </section>
 
       {/* Challenge / Solution / Result — grid with borders */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
+        <div className="mx-auto">
           <div ref={detRef} className="grid grid-cols-1 md:grid-cols-3">
             {[
               { label: "The Challenge", text: project.challenge },
               { label: "Our Solution", text: project.solution },
               { label: "The Result", text: project.result },
             ].map((block, i) => (
-              <div key={block.label} className={`px-6 lg:px-10 py-12 border-l border-border first:border-l-0 transition-all duration-500 ${detVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+              <div key={block.label} className={`px-[50px] py-12 border-l border-border first:border-l-0 transition-all duration-500 ${detVis[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
                 <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">{block.label}</p>
                 <p className="text-[14px] leading-relaxed text-foreground/80">{block.text}</p>
               </div>
@@ -127,7 +127,7 @@ const ProjectDetail = () => {
 
       {/* Gallery — bordered grid */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
+        <div className="mx-auto">
           <div ref={imgRef} className="grid grid-cols-1 md:grid-cols-2">
             {[0, 1, 2, 3].map((n) => (
               <div key={n} className={`aspect-[4/3] bg-muted border border-border -mt-px -ml-px transition-all duration-500 ${imgVis[n] ? "opacity-100" : "opacity-0"}`} />
@@ -138,7 +138,7 @@ const ProjectDetail = () => {
 
       {/* Next project */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16">
+        <div className="mx-auto px-[50px] py-16">
           <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Next project</p>
           <Link to={`/work/${nextSlug}`} className="group flex items-center justify-between">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground group-hover:text-muted-foreground transition-colors">

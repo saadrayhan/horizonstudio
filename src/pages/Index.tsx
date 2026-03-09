@@ -47,9 +47,9 @@ const Index = () => {
 
       {/* ===== HERO ===== */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] min-h-[calc(100vh-72px)]">
-            <div className="flex flex-col justify-end px-6 lg:px-10 py-16 md:py-20">
+            <div className="flex flex-col justify-end px-[50px] py-16 md:py-20">
               <motion.h1
                 className="font-serif text-[42px] md:text-[52px] lg:text-[60px] text-foreground leading-[1.06]"
                 initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -92,7 +92,7 @@ const Index = () => {
             </div>
 
             <motion.div
-              className="hidden md:flex items-end justify-center border-l border-border px-10 pb-0"
+              className="hidden md:flex items-end justify-center border-l border-border px-[50px] pb-0"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={loaded ? { opacity: 1, scale: 1 } : {}}
               transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
@@ -105,20 +105,20 @@ const Index = () => {
 
       {/* Stats strip */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4">
-          <Reveal className="px-6 lg:px-10 py-6 border-r border-border" delay={0}>
+        <div className="mx-auto grid grid-cols-2 md:grid-cols-4">
+          <Reveal className="px-[50px] py-6 border-r border-border" delay={0}>
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Avg. Delivery</p>
             <p className="text-[28px] font-serif text-foreground mt-1">8 weeks</p>
           </Reveal>
-          <div ref={c1Ref} className="px-6 lg:px-10 py-6 border-r border-border">
+          <div ref={c1Ref} className="px-[50px] py-6 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Projects</p>
             <p className="text-[28px] font-mono font-semibold text-foreground mt-1">{c1}+</p>
           </div>
-          <div ref={c2Ref} className="px-6 lg:px-10 py-6 border-r border-border">
+          <div ref={c2Ref} className="px-[50px] py-6 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Team</p>
             <p className="text-[28px] font-mono font-semibold text-foreground mt-1">{c2}</p>
           </div>
-          <Reveal className="px-6 lg:px-10 py-6" delay={0.15}>
+          <Reveal className="px-[50px] py-6" delay={0.15}>
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Fee</p>
             <p className="text-[28px] font-mono font-semibold text-foreground mt-1">$0</p>
           </Reveal>
@@ -127,8 +127,8 @@ const Index = () => {
 
       {/* ===== MATTERS MOST ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
-          <Reveal className="px-6 lg:px-10 py-12">
+        <div className="mx-auto">
+          <Reveal className="px-[50px] py-12">
             <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1]">
               Horizon Studio matters most for <span className="italic">high-stakes decisions</span>
             </h2>
@@ -136,7 +136,7 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
             {decisions.map((d, i) => (
               <StaggerItem key={i}>
-                <HoverLift className="px-6 lg:px-10 py-8 border-b md:border-b-0 md:border-r border-border last:border-r-0 last:border-b-0 h-full">
+                <HoverLift className="px-[50px] py-8 border-b md:border-b-0 md:border-r border-border last:border-r-0 last:border-b-0 h-full">
                   <h3 className="text-[16px] font-semibold text-foreground mb-3 leading-snug">{d.title}</h3>
                   <p className="text-[13px] text-muted-foreground leading-relaxed">{d.desc}</p>
                 </HoverLift>
@@ -148,7 +148,7 @@ const Index = () => {
 
       {/* ===== HOW WE ADD VALUE ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <div className="mx-auto px-[50px] py-16 md:py-20">
           <Reveal>
             <h2 className="font-serif text-[32px] md:text-[40px] text-foreground leading-[1.1] mb-4">
               How we add value
@@ -180,8 +180,8 @@ const Index = () => {
 
       {/* ===== BENTO ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="px-[50px] py-16 md:py-20 flex flex-col justify-center border-r border-border">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
               Let us <span className="italic">show you</span> our best work
             </h2>
@@ -202,7 +202,7 @@ const Index = () => {
 
       {/* ===== SELECTED WORK ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <div className="mx-auto px-[50px] py-16 md:py-20">
           <Reveal className="flex items-end justify-between mb-2">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground">
               Selected <span className="italic">projects</span>
@@ -240,8 +240,8 @@ const Index = () => {
 
       {/* ===== TEAM ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
-          <Reveal className="px-6 lg:px-10 py-12">
+        <div className="mx-auto">
+          <Reveal className="px-[50px] py-12">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground">
               Meet the <span className="italic">advisors</span> you'll work with
             </h2>
@@ -250,7 +250,7 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 border-t border-border">
             {team.map((m) => (
               <StaggerItem key={m.name} className="border-r border-border last:border-r-0 border-b sm:border-b-0 last:border-b-0">
-                <HoverLift className="px-6 lg:px-10 py-8">
+                <HoverLift className="px-[50px] py-8">
                   <p className="font-serif text-[22px] text-foreground italic mb-3">
                     {m.name.split(' ')[0]}<br/>{m.name.split(' ')[1] || ''}
                   </p>
@@ -272,7 +272,7 @@ const Index = () => {
 
       {/* ===== CASE STUDY ===== */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
+        <div className="mx-auto">
           <motion.div
             ref={caseRef}
             className="grid grid-cols-1 md:grid-cols-2"
@@ -280,7 +280,7 @@ const Index = () => {
             animate={caseInView ? { opacity: 1, y: 0 } : {}}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center border-r border-border">
+            <div className="px-[50px] py-16 md:py-20 flex flex-col justify-center border-r border-border">
               <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Client Spotlight</p>
               <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
                 How we redesigned a fashion brand's <span className="italic">mobile experience</span>

@@ -65,7 +65,7 @@ const BlogDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <section className="pt-[72px] py-28 px-6 max-w-[720px] mx-auto text-center">
+        <section className="pt-[72px] py-28 px-[50px] mx-auto text-center">
           <h1 className="font-serif text-4xl text-foreground italic">Post not found</h1>
           <Link to="/blog" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to blog</Link>
         </section>
@@ -81,7 +81,7 @@ const BlogDetail = () => {
       <article className="pt-[72px]">
         {/* Header */}
         <div className="border-b border-border">
-          <div className="max-w-[720px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+          <div className="max-w-[720px] mx-auto px-[50px] py-16 md:py-20">
             <Link to="/blog" className="text-[12px] font-mono text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider mb-8 inline-block">← Back</Link>
 
             <div className="flex items-center gap-3 mb-4">
@@ -110,7 +110,7 @@ const BlogDetail = () => {
         </div>
 
         {/* Content */}
-        <div className="max-w-[720px] mx-auto px-6 lg:px-10 py-12 md:py-16">
+        <div className="max-w-[720px] mx-auto px-[50px] py-12 md:py-16">
           <div className="space-y-6">
             {post.content.map((para, i) => (
               <p key={i} className="text-[16px] leading-[1.85] text-foreground/80">{para}</p>
@@ -120,7 +120,7 @@ const BlogDetail = () => {
 
         {/* Bottom nav */}
         <div className="border-t border-border">
-          <div className="max-w-[720px] mx-auto px-6 lg:px-10 py-8 flex items-center justify-between">
+          <div className="max-w-[720px] mx-auto px-[50px] py-8 flex items-center justify-between">
             <Link to="/blog" className="text-[12px] font-mono text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">← All posts</Link>
             <span className="text-[12px] font-mono text-muted-foreground uppercase tracking-wider">Share</span>
           </div>
