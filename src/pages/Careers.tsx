@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { Reveal, StaggerContainer, StaggerItem, motion } from "@/components/motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import processImg from "@/assets/process-image.jpg";
 import illustrationCareers from "@/assets/illustration-careers.png";
-import teamSaad from "@/assets/team-saad.jpg";
-import teamJoy from "@/assets/team-joy.jpg";
-import teamRintu from "@/assets/team-rintu.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
+import teamGroup4 from "@/assets/team-group-4.jpg";
 
 const cultureBlocks = [
   { text: "Our ambitions are to be category defining. This means pursuing an experience that's nothing short of extraordinary." },
