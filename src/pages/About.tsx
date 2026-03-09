@@ -120,7 +120,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Team working" className="w-full h-full object-cover aspect-[4/3]" />
+            <img src={teamGroup3} alt="Team working" className="w-full h-full object-cover aspect-[4/3]" />
           </motion.div>
         </div>
       </section>
