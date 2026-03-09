@@ -5,6 +5,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import processImg from "@/assets/process-image.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
+import teamSaad from "@/assets/team-saad.jpg";
+import teamJoy from "@/assets/team-joy.jpg";
+import teamTamim from "@/assets/team-tamim.jpg";
+import teamRintu from "@/assets/team-rintu.jpg";
+import teamMahfuz from "@/assets/team-mahfuz.jpg";
 
 const team = [
   { name: "Saad Rayhan", role: "Creative Director & CEO" },
