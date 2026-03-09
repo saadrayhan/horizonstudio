@@ -3,7 +3,9 @@ import { Reveal, StaggerContainer, StaggerItem, HoverLift, MagneticButton, motio
 import { useCountUp } from "@/hooks/useReveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import processImg from "@/assets/process-image.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
+import teamGroup3 from "@/assets/team-group-3.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
 import teamSaad from "@/assets/team-saad.jpg";
 import teamJoy from "@/assets/team-joy.jpg";
