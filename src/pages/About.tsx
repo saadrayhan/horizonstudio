@@ -37,8 +37,8 @@ const About = () => {
 
       {/* Hero */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
-          <div className="px-6 lg:px-10 py-20 md:py-28 flex flex-col justify-end">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_1fr]">
+          <div className="px-[50px] py-20 md:py-28 flex flex-col justify-end">
             <motion.h1
               className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06]"
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -69,7 +69,7 @@ const About = () => {
             </motion.div>
           </div>
           <motion.div
-            className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0"
+            className="border-l border-border hidden md:flex items-end justify-center px-[50px] pb-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
@@ -81,13 +81,13 @@ const About = () => {
 
       {/* Two-col value statement */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="px-6 lg:px-10 py-16 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="px-[50px] py-16 border-r border-border">
             <h2 className="font-serif text-[28px] text-foreground leading-[1.15]">
               Here to deliver the <span className="italic">value</span> expected on day one.
             </h2>
           </Reveal>
-          <Reveal className="px-6 lg:px-10 py-16" delay={0.1}>
+          <Reveal className="px-[50px] py-16" delay={0.1}>
             <h2 className="font-serif text-[28px] text-foreground leading-[1.15]">
               At the highest <span className="italic">quality</span> possible.
             </h2>
@@ -97,8 +97,8 @@ const About = () => {
 
       {/* Bento — photo + text */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="bg-secondary/40 px-6 lg:px-10 py-12 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="bg-secondary/40 px-[50px] py-12 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">The future of product</p>
             <p className="text-[14px] text-foreground/80 leading-relaxed max-w-[380px] mb-6">
               We believe the best products come from small, focused teams with strong opinions and full ownership.
@@ -120,13 +120,13 @@ const About = () => {
 
       {/* DNA + principles */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="px-6 lg:px-10 py-16 md:py-20 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="px-[50px] py-16 md:py-20 border-r border-border">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.1]">
               Our DNA is defined by holding an uncompromisingly high bar for who we hire, and giving them wide latitude to make <span className="italic">decisions.</span>
             </h2>
           </Reveal>
-          <div className="px-6 lg:px-10 py-16 md:py-20 flex flex-col justify-center">
+          <div className="px-[50px] py-16 md:py-20 flex flex-col justify-center">
             <StaggerContainer>
               {principles.map((p, i) => (
                 <StaggerItem key={i}>
@@ -143,20 +143,20 @@ const About = () => {
 
       {/* Stats */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4">
-          <div ref={c1} className="px-6 lg:px-10 py-8 border-r border-border">
+        <div className="mx-auto grid grid-cols-2 md:grid-cols-4">
+          <div ref={c1} className="px-[50px] py-8 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Projects</p>
             <p className="text-[32px] font-mono font-semibold text-foreground mt-1">{n1}+</p>
           </div>
-          <div ref={c2} className="px-6 lg:px-10 py-8 border-r border-border">
+          <div ref={c2} className="px-[50px] py-8 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Team</p>
             <p className="text-[32px] font-mono font-semibold text-foreground mt-1">{n2}</p>
           </div>
-          <Reveal className="px-6 lg:px-10 py-8 border-r border-border">
+          <Reveal className="px-[50px] py-8 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Founded</p>
             <p className="text-[32px] font-mono font-semibold text-foreground mt-1">2026</p>
           </Reveal>
-          <Reveal className="px-6 lg:px-10 py-8" delay={0.1}>
+          <Reveal className="px-[50px] py-8" delay={0.1}>
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Based in</p>
             <p className="text-[32px] font-semibold text-foreground mt-1">Dhaka</p>
           </Reveal>
@@ -165,8 +165,8 @@ const About = () => {
 
       {/* Principles + values */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="px-6 lg:px-10 py-16 md:py-20 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="px-[50px] py-16 md:py-20 border-r border-border">
             <h2 className="font-serif text-[28px] text-foreground">
               Our principles<br/>guide how we do things
             </h2>
@@ -176,7 +176,7 @@ const About = () => {
               </Link>
             </MagneticButton>
           </Reveal>
-          <div className="px-6 lg:px-10 py-16 md:py-20">
+          <div className="px-[50px] py-16 md:py-20">
             <StaggerContainer>
               {values.map((v, i) => (
                 <StaggerItem key={i}>
@@ -193,8 +193,8 @@ const About = () => {
 
       {/* Team */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
-          <Reveal className="px-6 lg:px-10 py-12">
+        <div className="mx-auto">
+          <Reveal className="px-[50px] py-12">
             <h2 className="font-serif text-[28px] md:text-[36px] text-foreground">
               Meet the team <span className="italic">building</span><br/>the future of product
             </h2>
@@ -224,8 +224,8 @@ const About = () => {
 
       {/* Apply CTA */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2">
-          <Reveal className="px-6 lg:px-10 py-16 md:py-20 border-r border-border">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
+          <Reveal className="px-[50px] py-16 md:py-20 border-r border-border">
             <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-3">Apply to join our team</p>
             <p className="text-[14px] text-muted-foreground max-w-[360px] leading-relaxed mb-6">
               We're always looking for talented people who care about craft.

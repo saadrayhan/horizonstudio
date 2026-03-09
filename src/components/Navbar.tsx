@@ -33,7 +33,7 @@ const Navbar = () => {
           scrolled ? "bg-background backdrop-blur-xl border-border" : "bg-background border-border"
         }`}
       >
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
+        <div className="mx-auto px-[50px] h-[72px] flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
@@ -94,7 +94,7 @@ const Navbar = () => {
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex items-center justify-between px-6 h-[72px] border-b border-border">
+        <div className="flex items-center justify-between px-[50px] h-[72px] border-b border-border">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
               <span className="text-[11px] font-bold text-primary-foreground">H</span>
@@ -107,7 +107,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-col px-6 pt-8">
+        <div className="flex flex-col px-[50px] pt-8">
           {[...navLinks, { label: "Contact", href: "/contact" }].map((l, i) => (
             <Link
               key={l.label}

@@ -35,8 +35,8 @@ const Careers = () => {
 
       {/* Hero */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-[1.3fr_1fr]">
-          <div className="px-6 lg:px-10 py-20 md:py-28">
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-[1.3fr_1fr]">
+          <div className="px-[50px] py-20 md:py-28">
             <motion.h1
               className="font-serif text-[42px] md:text-[52px] text-foreground leading-[1.06]"
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -55,7 +55,7 @@ const Careers = () => {
             </motion.p>
           </div>
           <motion.div
-            className="border-l border-border hidden md:flex items-end justify-center px-10 pb-0"
+            className="border-l border-border hidden md:flex items-end justify-center px-[50px] pb-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
@@ -67,7 +67,7 @@ const Careers = () => {
 
       {/* Culture DNA */}
       <section className="border-b border-border">
-        <Reveal className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <Reveal className="mx-auto px-[50px] py-16 md:py-20">
           <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.1] max-w-[500px]">
             Our DNA is defined by holding an uncompromisingly high bar for who we hire, and giving them wide latitude to make <span className="italic">decisions.</span>
           </h2>
@@ -76,7 +76,7 @@ const Careers = () => {
 
       {/* Photo bento */}
       <section className="border-b border-border">
-        <StaggerContainer className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-3">
+        <StaggerContainer className="mx-auto grid grid-cols-1 md:grid-cols-3">
           {cultureBlocks.map((b, i) => (
             <StaggerItem key={i} className="border-r border-border last:border-r-0 border-b md:border-b-0 last:border-b-0">
               <div className="aspect-[4/3] bg-muted overflow-hidden">
@@ -88,7 +88,7 @@ const Careers = () => {
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 />
               </div>
-              <div className="px-6 lg:px-8 py-6">
+              <div className="px-[50px] py-6">
                 <p className="text-[13px] text-foreground/70 leading-relaxed">{b.text}</p>
               </div>
             </StaggerItem>
@@ -98,7 +98,7 @@ const Careers = () => {
 
       {/* Job listings */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <div className="mx-auto px-[50px] py-16 md:py-20">
           <Reveal><h2 className="font-serif text-[28px] text-foreground mb-8">Apply to join our team</h2></Reveal>
 
           <StaggerContainer>
@@ -133,13 +133,13 @@ const Careers = () => {
 
       {/* Quote band */}
       <section className="border-b border-border">
-        <div className="max-w-[1240px] mx-auto">
-          <Reveal className="px-6 lg:px-10 py-10">
+        <div className="mx-auto">
+          <Reveal className="px-[50px] py-10">
             <h2 className="font-serif text-[28px] text-foreground">What we're looking for</h2>
           </Reveal>
           <div className="border-t border-border bg-foreground">
             <motion.div
-              className="max-w-[1240px] mx-auto px-10 py-16 md:py-20 flex items-center justify-center"
+              className="mx-auto px-[50px] py-16 md:py-20 flex items-center justify-center"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

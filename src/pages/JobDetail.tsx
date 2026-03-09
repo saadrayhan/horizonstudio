@@ -41,7 +41,7 @@ const JobDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <section className="pt-[72px] py-28 px-6 max-w-[800px] mx-auto text-center">
+        <section className="pt-[72px] py-28 px-[50px] mx-auto text-center">
           <h1 className="font-serif text-4xl text-foreground italic">Job not found</h1>
           <Link to="/careers" className="text-muted-foreground mt-4 inline-block hover:text-foreground transition-colors">← Back to careers</Link>
         </section>
@@ -56,7 +56,7 @@ const JobDetail = () => {
 
       {/* Header */}
       <section className="pt-[72px] border-b border-border">
-        <div className="max-w-[800px] mx-auto px-6 lg:px-10 py-16 md:py-20">
+        <div className="max-w-[800px] mx-auto px-[50px] py-16 md:py-20">
           <Link to="/careers" className="text-[12px] font-mono text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider mb-8 inline-block">← Back</Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -77,9 +77,9 @@ const JobDetail = () => {
         </div>
       </section>
 
-      {/* Content — two column layout */}
+      {/* Content */}
       <section className="border-b border-border">
-        <div className="max-w-[800px] mx-auto px-6 lg:px-10 py-12 md:py-16">
+        <div className="max-w-[800px] mx-auto px-[50px] py-12 md:py-16">
           <div className="mb-10">
             <h2 className="text-[15px] font-semibold text-foreground mb-3">About this role</h2>
             <p className="text-[14px] text-foreground/75 leading-relaxed">{job.about}</p>
@@ -107,7 +107,7 @@ const JobDetail = () => {
 
       {/* Apply CTA */}
       <section className="border-b border-border">
-        <div className="max-w-[800px] mx-auto px-6 lg:px-10 py-16">
+        <div className="max-w-[800px] mx-auto px-[50px] py-16">
           <h2 className="font-serif text-[28px] text-foreground">Interested?</h2>
           <p className="text-muted-foreground mt-2 mb-6 text-[14px]">Send us your portfolio and a brief note about why you'd be a great fit.</p>
           <a href={`mailto:careers@studio.dev?subject=Application: ${job.title}`} className="inline-block text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-7 py-3 rounded-full hover:bg-foreground/90 transition-colors">

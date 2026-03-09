@@ -10,7 +10,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <section className="pt-40 pb-32 px-6 lg:px-12 max-w-[1300px] mx-auto text-center">
+      <section className="pt-40 pb-32 px-[50px] mx-auto text-center">
         <p className="font-serif text-[100px] md:text-[140px] text-foreground/5 leading-none">404</p>
         <h1 className="font-serif text-3xl text-foreground mt-4">Page not found</h1>
         <p className="text-[15px] text-muted-foreground mt-3 max-w-[360px] mx-auto">

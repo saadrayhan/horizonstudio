@@ -23,9 +23,9 @@ const footerLinks = {
 const Footer = () => (
   <footer className="section-dark">
     {/* CTA band */}
-    <div className="max-w-[1240px] mx-auto">
+    <div className="mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
-        <div className="px-6 lg:px-10 py-16 md:py-20">
+        <div className="px-[50px] py-16 md:py-20">
           <h2 className="font-serif text-[32px] md:text-[40px] text-white leading-[1.1]">
             Ready to build something <span className="italic">great?</span>
           </h2>
@@ -36,7 +36,7 @@ const Footer = () => (
             Talk to us →
           </Link>
         </div>
-        <div className="border-l border-white/10 hidden md:flex items-end justify-end px-10 pb-10">
+        <div className="border-l border-white/10 hidden md:flex items-end justify-end px-[50px] pb-10">
           <div className="text-right">
             <p className="text-[11px] font-mono text-white/30 uppercase tracking-wider">Est.</p>
             <p className="text-[48px] font-serif text-white/20 italic">2026</p>
@@ -46,8 +46,8 @@ const Footer = () => (
     </div>
 
     {/* Links */}
-    <div className="max-w-[1240px] mx-auto border-b border-white/10">
-      <div className="grid grid-cols-2 md:grid-cols-5 px-6 lg:px-10 py-12 gap-8">
+    <div className="mx-auto border-b border-white/10">
+      <div className="grid grid-cols-2 md:grid-cols-5 px-[50px] py-12 gap-8">
         <div className="flex items-start">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -89,7 +89,7 @@ const Footer = () => (
     </div>
 
     {/* Bottom bar */}
-    <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div className="mx-auto px-[50px] py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <div className="flex items-center gap-2">
         <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
           <span className="text-[10px] font-bold text-white/60">H</span>
