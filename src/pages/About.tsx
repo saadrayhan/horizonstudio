@@ -12,11 +12,11 @@ import teamRintu from "@/assets/team-rintu.jpg";
 import teamMahfuz from "@/assets/team-mahfuz.jpg";
 
 const team = [
-  { name: "Saad Rayhan", role: "Creative Director & CEO" },
-  { name: "Joy Sorkar", role: "CTO & Backend Developer" },
-  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager" },
-  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development" },
-  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative" },
+  { name: "Saad Rayhan", role: "Creative Director & CEO", photo: teamSaad },
+  { name: "Joy Sorkar", role: "CTO & Backend Developer", photo: teamJoy },
+  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: teamTamim },
+  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: teamRintu },
+  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative", photo: teamMahfuz },
 ];
 
 const principles = [
