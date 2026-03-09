@@ -7,12 +7,17 @@ import teamGroup1 from "@/assets/team-group-1.jpg";
 import teamGroup2 from "@/assets/team-group-2.jpg";
 import teamGroup3 from "@/assets/team-group-3.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
+import teamSaad from "@/assets/team-saad.jpg";
+import teamJoy from "@/assets/team-joy.jpg";
+import teamTamim from "@/assets/team-tamim.jpg";
+import teamRintu from "@/assets/team-rintu.jpg";
 import teamMahfuz from "@/assets/team-mahfuz.jpg";
+
 const team = [
-{ name: "Saad Rayhan", role: "Creative Director & CEO", photo: "/lovable-uploads/98a33dc6-48ee-45c1-87d0-1313131baeae.webp" },
-{ name: "Joy Sorkar", role: "CTO & Backend Developer", photo: "/lovable-uploads/371f2ac4-8789-4623-be4f-bbc578b951cc.jpg" },
-{ name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: "/lovable-uploads/abe2e928-0581-4784-a44d-4f8340c218c3.jpg" },
-{ name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: "/lovable-uploads/824d66f8-6476-4c0d-be64-6d43e0a76df4.jpg" },
+{ name: "Saad Rayhan", role: "Creative Director & CEO", photo: teamSaad },
+{ name: "Joy Sorkar", role: "CTO & Backend Developer", photo: teamJoy },
+{ name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: teamTamim },
+{ name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: teamRintu },
 { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative", photo: teamMahfuz }];
 
 
@@ -244,7 +249,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}>
             
-            <img alt="Join us" className="w-full h-full object-cover aspect-[16/10]" src="/lovable-uploads/3cdba4bb-12dc-4583-b663-c2b55dc6a49e.jpg" />
+            <img alt="Join us" className="w-full h-full object-cover aspect-[16/10]" src="/lovable-uploads/2e0aab3c-4d3a-4bdb-ab4a-bdd97935eba4.jpg" />
           </motion.div>
         </div>
       </section>
