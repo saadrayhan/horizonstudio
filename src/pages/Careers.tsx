@@ -97,7 +97,8 @@ const Careers = () => {
                 <p className="text-[13px] text-foreground/70 leading-relaxed">{b.text}</p>
               </div>
             </StaggerItem>
-          ))}
+          );
+          })}
         </StaggerContainer>
       </section>
 

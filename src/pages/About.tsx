@@ -213,7 +213,7 @@ const About = () => {
                   </p>
                   <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
                     <motion.img
-                      src={processImg}
+                      src={m.photo}
                       alt={m.name}
                       className="w-full h-full object-cover grayscale"
                       whileHover={{ scale: 1.04 }}
