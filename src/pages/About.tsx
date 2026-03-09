@@ -249,7 +249,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Join us" className="w-full h-full object-cover aspect-[16/10]" />
+            <img src={teamGroup2} alt="Join us" className="w-full h-full object-cover aspect-[16/10]" />
           </motion.div>
         </div>
       </section>

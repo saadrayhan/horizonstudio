@@ -199,7 +199,7 @@ const Index = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Our process" className="w-full h-full object-cover aspect-[4/3]" />
+            <img src={teamGroup1} alt="Our team at work" className="w-full h-full object-cover aspect-[4/3]" />
           </motion.div>
         </div>
       </section>

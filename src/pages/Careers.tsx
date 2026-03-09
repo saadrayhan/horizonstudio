@@ -80,7 +80,7 @@ const Careers = () => {
       <section className="border-b border-border">
         <StaggerContainer className="mx-auto grid grid-cols-1 md:grid-cols-3">
           {cultureBlocks.map((b, i) => {
-            const culturePhotos = [teamSaad, teamJoy, teamRintu];
+            const culturePhotos = [teamGroup1, teamGroup2, teamGroup4];
             return (
             <StaggerItem key={i} className="border-r border-border last:border-r-0 border-b md:border-b-0 last:border-b-0">
               <div className="aspect-[4/3] bg-muted overflow-hidden">
