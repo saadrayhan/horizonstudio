@@ -14,11 +14,11 @@ import teamRintu from "@/assets/team-rintu.jpg";
 import teamMahfuz from "@/assets/team-mahfuz.jpg";
 
 const team = [
-{ name: "Saad Rayhan", role: "Creative Director & CEO", photo: teamSaad },
-{ name: "Joy Sorkar", role: "CTO & Backend Developer", photo: teamJoy },
-{ name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: teamTamim },
-{ name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: teamRintu },
-{ name: "Mahfuz", role: "Full-Stack Developer & Sales Representative", photo: teamMahfuz }];
+{ name: "Saad Rayhan", role: "Creative Director & CEO", photo: "/lovable-uploads/289bf625-7941-4b25-8937-04af6bf1ee66.webp" },
+{ name: "Joy Sorkar", role: "CTO & Backend Developer", photo: "/lovable-uploads/1185ed1f-40ce-49db-8622-fa8f37d05037.jpg" },
+{ name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: "/lovable-uploads/cd48d7fc-3eeb-46f1-b9ad-6e5dff31b558.jpg" },
+{ name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: "/lovable-uploads/dd33dfa7-3a84-4fb1-8ca7-9133cba5afcb.jpg" },
+{ name: "Rakibul Islam", role: "Full-Stack Developer & Sales Representative", photo: teamMahfuz }];
 
 
 const principles = [
