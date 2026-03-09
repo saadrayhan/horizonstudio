@@ -3,7 +3,9 @@ import { Reveal, StaggerContainer, StaggerItem, HoverLift, MagneticButton, motio
 import { useCountUp } from "@/hooks/useReveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import processImg from "@/assets/process-image.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
+import teamGroup3 from "@/assets/team-group-3.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
 import teamSaad from "@/assets/team-saad.jpg";
 import teamJoy from "@/assets/team-joy.jpg";
@@ -118,7 +120,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Team working" className="w-full h-full object-cover aspect-[4/3]" />
+            <img src={teamGroup3} alt="Team working" className="w-full h-full object-cover aspect-[4/3]" />
           </motion.div>
         </div>
       </section>
@@ -247,7 +249,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Join us" className="w-full h-full object-cover aspect-[16/10]" />
+            <img src={teamGroup2} alt="Join us" className="w-full h-full object-cover aspect-[16/10]" />
           </motion.div>
         </div>
       </section>

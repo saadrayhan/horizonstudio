@@ -5,11 +5,12 @@ import { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroIllustration from "@/assets/illustration-hero.png";
-import processImg from "@/assets/process-image.jpg";
 import caseStudyImg from "@/assets/case-study-1.jpg";
 import teamSaad from "@/assets/team-saad.jpg";
 import teamJoy from "@/assets/team-joy.jpg";
 import teamTamim from "@/assets/team-tamim.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
 
 const decisions = [
   { title: "You're building your first product →", desc: "First-time founders need a partner who can translate vision into a shippable product — without burning through runway." },
@@ -198,7 +199,7 @@ const Index = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           >
-            <img src={processImg} alt="Our process" className="w-full h-full object-cover aspect-[4/3]" />
+            <img src={teamGroup1} alt="Our team at work" className="w-full h-full object-cover aspect-[4/3]" />
           </motion.div>
         </div>
       </section>
