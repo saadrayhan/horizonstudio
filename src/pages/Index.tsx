@@ -6,9 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroIllustration from "@/assets/illustration-hero.png";
 import caseStudyImg from "@/assets/case-study-1.jpg";
-import teamSaad from "@/assets/team-saad.jpg";
-import teamJoy from "@/assets/team-joy.jpg";
-import teamTamim from "@/assets/team-tamim.jpg";
 import teamGroup1 from "@/assets/team-group-1.jpg";
 import teamGroup2 from "@/assets/team-group-2.jpg";
 
@@ -31,9 +28,9 @@ const projects = [
 
 
 const team = [
-{ name: "Saad R.", role: "Creative Director & CEO", photo: teamSaad },
-{ name: "Joy S.", role: "CTO & Backend Developer", photo: teamJoy },
-{ name: "Maqibul T.", role: "Product Designer & Sales", photo: teamTamim }];
+{ name: "Saad R.", role: "Creative Director & CEO", photo: "/lovable-uploads/e9eac9a4-2da3-44fa-9590-57020361a06b.webp" },
+{ name: "Joy S.", role: "CTO & Backend Developer", photo: "/lovable-uploads/f0be1941-eb8a-418a-a2ff-52c9b87bfd7a.jpg" },
+{ name: "Maqibul T.", role: "Product Designer & Sales", photo: "/lovable-uploads/67c48ff7-fb4c-458a-b456-2da08f6b33c3.jpg" }];
 
 
 const Index = () => {
