@@ -7,6 +7,9 @@ import Footer from "@/components/Footer";
 import heroIllustration from "@/assets/illustration-hero.png";
 import processImg from "@/assets/process-image.jpg";
 import caseStudyImg from "@/assets/case-study-1.jpg";
+import teamSaad from "@/assets/team-saad.jpg";
+import teamJoy from "@/assets/team-joy.jpg";
+import teamTamim from "@/assets/team-tamim.jpg";
 
 const decisions = [
   { title: "You're building your first product →", desc: "First-time founders need a partner who can translate vision into a shippable product — without burning through runway." },
@@ -27,9 +30,9 @@ const projects = [
 ];
 
 const team = [
-  { name: "Saad R.", role: "Creative Director & CEO" },
-  { name: "Joy S.", role: "CTO & Backend Developer" },
-  { name: "Maqibul T.", role: "Product Designer & Sales" },
+  { name: "Saad R.", role: "Creative Director & CEO", photo: teamSaad },
+  { name: "Joy S.", role: "CTO & Backend Developer", photo: teamJoy },
+  { name: "Maqibul T.", role: "Product Designer & Sales", photo: teamTamim },
 ];
 
 const Index = () => {
@@ -256,7 +259,7 @@ const Index = () => {
                   </p>
                   <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
                     <motion.img
-                      src={processImg}
+                      src={m.photo}
                       alt={m.name}
                       className="w-full h-full object-cover grayscale"
                       whileHover={{ scale: 1.04 }}

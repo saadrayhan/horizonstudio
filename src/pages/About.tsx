@@ -5,13 +5,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import processImg from "@/assets/process-image.jpg";
 import illustrationAbout from "@/assets/illustration-about.png";
+import teamSaad from "@/assets/team-saad.jpg";
+import teamJoy from "@/assets/team-joy.jpg";
+import teamTamim from "@/assets/team-tamim.jpg";
+import teamRintu from "@/assets/team-rintu.jpg";
+import teamMahfuz from "@/assets/team-mahfuz.jpg";
 
 const team = [
-  { name: "Saad Rayhan", role: "Creative Director & CEO" },
-  { name: "Joy Sorkar", role: "CTO & Backend Developer" },
-  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager" },
-  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development" },
-  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative" },
+  { name: "Saad Rayhan", role: "Creative Director & CEO", photo: teamSaad },
+  { name: "Joy Sorkar", role: "CTO & Backend Developer", photo: teamJoy },
+  { name: "Maqibul Hossain Tamim", role: "Product Designer & Sales Manager", photo: teamTamim },
+  { name: "Ishrat Jahan Rintu", role: "Full Stack Developer & Business Development", photo: teamRintu },
+  { name: "Mahfuz", role: "Full-Stack Developer & Sales Representative", photo: teamMahfuz },
 ];
 
 const principles = [
@@ -208,7 +213,7 @@ const About = () => {
                   </p>
                   <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
                     <motion.img
-                      src={processImg}
+                      src={m.photo}
                       alt={m.name}
                       className="w-full h-full object-cover grayscale"
                       whileHover={{ scale: 1.04 }}

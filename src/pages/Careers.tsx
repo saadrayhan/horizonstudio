@@ -4,6 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import processImg from "@/assets/process-image.jpg";
 import illustrationCareers from "@/assets/illustration-careers.png";
+import teamSaad from "@/assets/team-saad.jpg";
+import teamJoy from "@/assets/team-joy.jpg";
+import teamRintu from "@/assets/team-rintu.jpg";
 
 const cultureBlocks = [
   { text: "Our ambitions are to be category defining. This means pursuing an experience that's nothing short of extraordinary." },
@@ -77,12 +80,14 @@ const Careers = () => {
       {/* Photo bento */}
       <section className="border-b border-border">
         <StaggerContainer className="mx-auto grid grid-cols-1 md:grid-cols-3">
-          {cultureBlocks.map((b, i) => (
+          {cultureBlocks.map((b, i) => {
+            const culturePhotos = [teamSaad, teamJoy, teamRintu];
+            return (
             <StaggerItem key={i} className="border-r border-border last:border-r-0 border-b md:border-b-0 last:border-b-0">
               <div className="aspect-[4/3] bg-muted overflow-hidden">
                 <motion.img
-                  src={processImg}
-                  alt="Culture"
+                  src={culturePhotos[i]}
+                  alt="Team culture"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -92,7 +97,8 @@ const Careers = () => {
                 <p className="text-[13px] text-foreground/70 leading-relaxed">{b.text}</p>
               </div>
             </StaggerItem>
-          ))}
+          );
+          })}
         </StaggerContainer>
       </section>
 
