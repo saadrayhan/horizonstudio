@@ -13,28 +13,28 @@ import teamGroup1 from "@/assets/team-group-1.jpg";
 import teamGroup2 from "@/assets/team-group-2.jpg";
 
 const decisions = [
-  { title: "You're building your first product →", desc: "First-time founders need a partner who can translate vision into a shippable product — without burning through runway." },
-  { title: "Your product needs a redesign →", desc: "Existing products that have outgrown their original design need a strategic rethink, not just a reskin." },
-  { title: "You need to ship faster →", desc: "Scaling teams need design and engineering support that integrates seamlessly with their existing workflows." },
-];
+{ title: "You're building your first product →", desc: "First-time founders need a partner who can translate vision into a shippable product — without burning through runway." },
+{ title: "Your product needs a redesign →", desc: "Existing products that have outgrown their original design need a strategic rethink, not just a reskin." },
+{ title: "You need to ship faster →", desc: "Scaling teams need design and engineering support that integrates seamlessly with their existing workflows." }];
+
 
 const howSteps = [
-  { num: "1", title: "See what's at stake", desc: "We map your product landscape, users, and constraints before proposing anything." },
-  { num: "2", title: "Work from first principles", desc: "We prototype and test ideas with real users before committing to code." },
-  { num: "3", title: "Move with conviction", desc: "We ship production-grade code incrementally — with full visibility every week." },
-];
+{ num: "1", title: "See what's at stake", desc: "We map your product landscape, users, and constraints before proposing anything." },
+{ num: "2", title: "Work from first principles", desc: "We prototype and test ideas with real users before committing to code." },
+{ num: "3", title: "Move with conviction", desc: "We ship production-grade code incrementally — with full visibility every week." }];
+
 
 const projects = [
-  { slug: "branch-management", name: "Branch Management System", category: "Product Design", year: "2025" },
-  { slug: "evwork", name: "EVwork Platform", category: "UI/UX Design", year: "2025" },
-  { slug: "ecommerce-app", name: "E-Commerce Mobile App", category: "Design + Dev", year: "2024" },
-];
+{ slug: "branch-management", name: "Branch Management System", category: "Product Design", year: "2025" },
+{ slug: "evwork", name: "EVwork Platform", category: "UI/UX Design", year: "2025" },
+{ slug: "ecommerce-app", name: "E-Commerce Mobile App", category: "Design + Dev", year: "2024" }];
+
 
 const team = [
-  { name: "Saad R.", role: "Creative Director & CEO", photo: teamSaad },
-  { name: "Joy S.", role: "CTO & Backend Developer", photo: teamJoy },
-  { name: "Maqibul T.", role: "Product Designer & Sales", photo: teamTamim },
-];
+{ name: "Saad R.", role: "Creative Director & CEO", photo: teamSaad },
+{ name: "Joy S.", role: "CTO & Backend Developer", photo: teamJoy },
+{ name: "Maqibul T.", role: "Product Designer & Sales", photo: teamTamim }];
+
 
 const Index = () => {
   const [loaded, setLoaded] = useState(false);
@@ -43,7 +43,7 @@ const Index = () => {
   const caseRef = useRef<HTMLDivElement>(null);
   const caseInView = useInView(caseRef, { once: true, amount: 0.1 });
 
-  useEffect(() => { setTimeout(() => setLoaded(true), 60); }, []);
+  useEffect(() => {setTimeout(() => setLoaded(true), 60);}, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -58,8 +58,8 @@ const Index = () => {
                 className="font-serif text-[42px] md:text-[52px] lg:text-[60px] text-foreground leading-[1.06]"
                 initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                 animate={loaded ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
-              >
+                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}>
+                
                 The product studio for
                 high-stakes <span className="italic">decisions</span>
               </motion.h1>
@@ -67,21 +67,21 @@ const Index = () => {
                 className="text-[15px] text-muted-foreground mt-6 max-w-[400px] leading-relaxed"
                 initial={{ opacity: 0, y: 16 }}
                 animate={loaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.25 }}
-              >
+                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.25 }}>
+                
                 We help founders navigate product strategy, design, and engineering — with a dedicated team and a proven process.
               </motion.p>
               <motion.div
                 className="flex items-center gap-4 mt-8"
                 initial={{ opacity: 0, y: 12 }}
                 animate={loaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
-              >
+                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}>
+                
                 <MagneticButton>
                   <Link
                     to="/contact"
-                    className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-3 rounded-full hover:bg-foreground/90 transition-colors inline-flex"
-                  >
+                    className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-3 rounded-full hover:bg-foreground/90 transition-colors inline-flex">
+                    
                     Get started →
                   </Link>
                 </MagneticButton>
@@ -99,8 +99,8 @@ const Index = () => {
               className="hidden md:flex items-end justify-center border-l border-border px-[50px] pb-0"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={loaded ? { opacity: 1, scale: 1 } : {}}
-              transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
-            >
+              transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}>
+              
               <img src={heroIllustration} alt="City skyline illustration" className="w-full max-w-[480px] h-auto object-contain" />
             </motion.div>
           </div>
@@ -138,14 +138,14 @@ const Index = () => {
             </h2>
           </Reveal>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
-            {decisions.map((d, i) => (
-              <StaggerItem key={i}>
+            {decisions.map((d, i) =>
+            <StaggerItem key={i}>
                 <HoverLift className="px-[50px] py-8 border-b md:border-b-0 md:border-r border-border last:border-r-0 last:border-b-0 h-full">
                   <h3 className="text-[16px] font-semibold text-foreground mb-3 leading-snug">{d.title}</h3>
                   <p className="text-[13px] text-muted-foreground leading-relaxed">{d.desc}</p>
                 </HoverLift>
               </StaggerItem>
-            ))}
+            )}
           </StaggerContainer>
         </div>
       </section>
@@ -159,22 +159,22 @@ const Index = () => {
             </h2>
           </Reveal>
           <StaggerContainer className="mt-10">
-            {howSteps.map((step, i) => (
-              <StaggerItem key={i}>
+            {howSteps.map((step, i) =>
+            <StaggerItem key={i}>
                 <div className="grid grid-cols-[32px_1fr] md:grid-cols-[48px_200px_1fr] gap-4 md:gap-6 py-6 border-t border-border">
                   <span className="text-[14px] font-mono text-muted-foreground self-start mt-0.5">{step.num}</span>
                   <h3 className="text-[16px] font-semibold text-foreground">{step.title}</h3>
                   <p className="text-[13px] text-muted-foreground leading-relaxed col-start-2 md:col-start-3">{step.desc}</p>
                 </div>
               </StaggerItem>
-            ))}
+            )}
           </StaggerContainer>
           <Reveal className="mt-6 pt-6 border-t border-border" delay={0.2}>
             <MagneticButton className="inline-flex">
               <Link
                 to="/about"
-                className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors inline-flex"
-              >
+                className="text-[12px] font-semibold uppercase tracking-wider bg-foreground text-primary-foreground px-6 py-2.5 rounded-full hover:bg-foreground/90 transition-colors inline-flex">
+                
                 Learn more →
               </Link>
             </MagneticButton>
@@ -197,8 +197,8 @@ const Index = () => {
             initial={{ opacity: 0, scale: 1.03 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
-          >
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}>
+            
             <img src={teamGroup1} alt="Our team at work" className="w-full h-full object-cover aspect-[4/3]" />
           </motion.div>
         </div>
@@ -217,12 +217,12 @@ const Index = () => {
           </Reveal>
 
           <StaggerContainer>
-            {projects.map((p) => (
-              <StaggerItem key={p.slug}>
+            {projects.map((p) =>
+            <StaggerItem key={p.slug}>
                 <Link
-                  to={`/work/${p.slug}`}
-                  className="list-row group flex items-center justify-between py-5 border-t border-border"
-                >
+                to={`/work/${p.slug}`}
+                className="list-row group flex items-center justify-between py-5 border-t border-border">
+                
                   <div className="flex items-center gap-6">
                     <span className="text-[12px] font-mono text-muted-foreground w-16">{p.year}</span>
                     <h3 className="text-[16px] font-semibold text-foreground group-hover:text-muted-foreground transition-colors">{p.name}</h3>
@@ -230,14 +230,14 @@ const Index = () => {
                   <div className="flex items-center gap-4">
                     <span className="text-[12px] text-muted-foreground hidden sm:block">{p.category}</span>
                     <motion.span
-                      className="text-foreground"
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >→</motion.span>
+                    className="text-foreground"
+                    whileHover={{ x: 4 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+                    →</motion.span>
                   </div>
                 </Link>
               </StaggerItem>
-            ))}
+            )}
           </StaggerContainer>
         </div>
       </section>
@@ -252,24 +252,24 @@ const Index = () => {
           </Reveal>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 border-t border-border">
-            {team.map((m) => (
-              <StaggerItem key={m.name} className="border-r border-border last:border-r-0 border-b sm:border-b-0 last:border-b-0">
+            {team.map((m) =>
+            <StaggerItem key={m.name} className="border-r border-border last:border-r-0 border-b sm:border-b-0 last:border-b-0">
                 <HoverLift className="px-[50px] py-8">
                   <p className="font-serif text-[22px] text-foreground italic mb-3">
-                    {m.name.split(' ')[0]}<br/>{m.name.split(' ')[1] || ''}
+                    {m.name.split(' ')[0]}<br />{m.name.split(' ')[1] || ''}
                   </p>
                   <div className="aspect-[3/4] bg-muted overflow-hidden mb-3">
                     <motion.img
-                      src={m.photo}
-                      alt={m.name}
-                      className="w-full h-full object-cover grayscale"
-                      whileHover={{ scale: 1.04 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    />
+                    src={m.photo}
+                    alt={m.name}
+                    className="w-full h-full object-cover grayscale"
+                    whileHover={{ scale: 1.04 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }} />
+                  
                   </div>
                 </HoverLift>
               </StaggerItem>
-            ))}
+            )}
           </StaggerContainer>
         </div>
       </section>
@@ -282,8 +282,8 @@ const Index = () => {
             className="grid grid-cols-1 md:grid-cols-2"
             initial={{ opacity: 0, y: 30 }}
             animate={caseInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
-          >
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}>
+            
             <div className="px-[50px] py-16 md:py-20 flex flex-col justify-center border-r border-border">
               <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider mb-4">Client Spotlight</p>
               <h2 className="font-serif text-[28px] md:text-[36px] text-foreground leading-[1.12]">
@@ -321,17 +321,17 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 1.05 }}
               animate={caseInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.15 }}
-            >
-              <img src={caseStudyImg} alt="Case study" className="w-full h-full object-cover" />
+              transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.15 }}>
+              
+              <img alt="Case study" className="w-full h-full object-cover" src="/lovable-uploads/a0f3a370-f3a1-4cb6-baa5-0c66e19ce4ec.jpg" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;
